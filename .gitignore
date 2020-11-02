@@ -1,0 +1,17 @@
+# ignore vim swapfiles
+*.swp
+/storybook-static
+/public/apos-frontend
+/apos-build
+/apos-frontend
+/package-lock.json
+/locales
+npm-debug.log
+/data
+/public/uploads
+/public/apos-minified
+/data/temp/uploadfs
+/modules/asset/ui/public/site.js
+node_modules
+/public/modules
+/.jshintrc
