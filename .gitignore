@@ -1,17 +1,21 @@
-# ignore vim swapfiles
-*.swp
-/storybook-static
-/public/apos-frontend
-/apos-build
-/apos-frontend
-/package-lock.json
+package-lock.json
 /locales
 npm-debug.log
 /data
 /public/uploads
 /public/apos-minified
 /data/temp/uploadfs
-/modules/asset/ui/public/site.js
 node_modules
+# This folder is created on the fly and contains symlinks updated at startup (we'll come up with a Windows solution that actually copies things)
 /public/modules
-/.jshintrc
+# Don't commit build files
+/apos-build
+/public/apos-frontend
+/modules/asset/ui/public/site.js
+# We don't commit CSS, only LESS
+/public/css/*.css
+/public/css/*.map
+# Don't commit masters generated on the fly at startup, these import all the rest
+/public/css/master-*.less
+.jshintrc
+/public/js/_site-compiled.js

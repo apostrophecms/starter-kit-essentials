@@ -1,26 +1,26 @@
 {
-  "name": "a3-boilerplate",
-  "version": "1.0.0-prealpha",
-  "description": "Apostrophe 3 Demo Site",
+  "name": "apostrophe-boilerplate",
+  "version": "3.0.0-prealpha",
+  "description": "Apostrophe 3 Boilerplate Site",
   "main": "app.js",
   "scripts": {
-    "build": "webpack && npm run apostrophe-build",
-    "apostrophe-build": "node app @apostrophecms/asset:build",
     "start": "node app",
-    "dev": "nodemon --delay 1000ms -x \"npm run build && nodemon app.js\""
+    "build": "webpack && node app @apostrophecms/asset:build",
+    "dev": "nodemon --delay 1000ms -x \"npm run build && nodemon app.js\"",
+    "storybook": "node app @apostrophecms/storybook:run"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apostrophecms/a3-boilerplate"
+    "url": "https://github.com/apostrophecms/apostrophe-boilerplate"
   },
+  "author": "Apostrophe Technologies, Inc.",
+  "license": "MIT",
   "dependencies": {
     "apostrophe": "apostrophecms/apostrophe#3.0",
-    "bootstrap": "^4.5.2",
+    "normalize.css": "^8.0.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
-  "author": "Apostrophe Technologies, Inc",
-  "license": "MIT",
   "nodemonConfig": {
     "verbose": true,
     "watch": [
