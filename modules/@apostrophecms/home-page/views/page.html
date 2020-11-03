@@ -23,16 +23,16 @@
       <li><a href="https://chat.apostrophecms.com/" target="_blank">Discord</a></li>
       <li><a href="https://github.com/apostrophecms/apostrophe/tree/3.0" target="_blank">Github (3.0 branch)</a></li>
       <li><a href="https://twitter.com/apostrophecms" target="_blank">Twitter</a></li>
-      <li><a href="forum.apostrophecms.org/" target="_blank">Forum</a></li>
+      <li><a href="https://forum.apostrophecms.org" target="_blank">Forum</a></li>
     </ul>
     <div class="bp-welcome__area">
+      {% if data.user %}
+        {# Message only for logged in users. #}
+        <p>
+          Add and edit content below in the content area. 👇
+        </p>
+      {% endif %}
+      {% area data.page, 'main' %}
     </div>
-    {% if data.user %}
-      {# Message only for logged in users. #}
-      <p>
-        Add and edit content below in the content area. 👇
-      </p>
-    {% endif %}
-    {% area data.page, 'main' %}
   </section>
 {% endblock %}
