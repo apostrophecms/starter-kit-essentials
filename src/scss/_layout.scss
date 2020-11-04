@@ -39,7 +39,19 @@ main,
 }
 
 .bp-footer {
-  padding: 40px 0;
+  padding: 40px 0; 
+}
+
+.bp-footer__links {
+  padding-left: 0px;
+  list-style: none;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  li:last-child { margin-right: 0; }
 }
 
 .bp-header__logo {
