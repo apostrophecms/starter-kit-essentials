@@ -1,6 +1,6 @@
 {
   "name": "a3-boilerplate",
-  "version": "3.0.0-prealpha",
+  "version": "3.0.0-alpha.1",
   "description": "Apostrophe 3 Boilerplate Site",
   "main": "app.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "github:apostrophecms/apostrophe#3.0",
+    "apostrophe": "3.0.0-alpha.1",
     "normalize.css": "^8.0.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
