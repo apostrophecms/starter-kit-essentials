@@ -35,7 +35,7 @@ require('apostrophe')({
     },
     '@apostrophecms/video-widget': {
       options: {
-        className: 'bp-video'
+        className: 'bp-video-widget'
       }
     },
     // Manages apostrophe's overall asset pipeline
