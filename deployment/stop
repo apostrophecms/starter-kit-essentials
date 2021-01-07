@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export NODE_ENV=production
+
 # Shut the site down, for instance by tweaking a .htaccess file to display
 # a 'please wait' notice, or stopping a node server
 
