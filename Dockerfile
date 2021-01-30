@@ -1,8 +1,9 @@
 FROM node:12
 WORKDIR /app
-COPY package*.json /app/
+COPY . /app/
 RUN npm install
-COPY . /app
 EXPOSE 3000
-RUN npm run build
-CMD [ "npm", "start" ]
+RUN echo $(date +%s) > RELEASE_ID
+RUN APOS_RELEASE_ID=$(cat RELEASE_ID); npm run build
+ARG APOS_RELEASE_ID=$(cat RELEASE_ID)
+CMD ["npm", "start" ]
