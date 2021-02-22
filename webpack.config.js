@@ -5,8 +5,6 @@ const path = require('path');
 const mode = (process.env.NODE_ENV === 'production') ? 'production' : 'development';
 const publicOutputPath = 'http://localhost:9002/wp/';
 
-console.log(mode);
-
 module.exports = {
   mode,
   // In production, always be IE11 compatible. In dev, be IE11 compatible
@@ -19,7 +17,7 @@ module.exports = {
       filename: 'site.js',
       publicPath: publicOutputPath
     } : {
-      path: path.resolve(
+      path: path.join(
         __dirname, '/modules/asset/ui/public'
       ),
       filename: 'site.js'
