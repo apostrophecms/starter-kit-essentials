@@ -17,8 +17,8 @@ module.exports = {
       filename: 'site.js',
       publicPath: publicOutputPath
     } : {
-      path: path.join(
-        __dirname, '/modules/asset/ui/public'
+      path: path.resolve(
+        __dirname, 'modules/asset/ui/public'
       ),
       filename: 'site.js'
     })
