@@ -38,14 +38,6 @@ require('apostrophe')({
         className: 'bp-video-widget'
       }
     },
-    // Manages apostrophe's overall asset pipeline
-    '@apostrophecms/asset': {
-      // When not in production, refresh the page on restart
-      options: {
-        refreshOnRestart: true
-      }
-    },
-
     '@apostrophecms/express': {
       options: {
         session: {

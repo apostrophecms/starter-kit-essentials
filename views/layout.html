@@ -10,10 +10,10 @@
 {% endblock %}
 
 {% block extraHead %}
-  {#
-    This block outputs its contents in the HTML document's <head>.
-    It is a good place to put extra <script> <link> and <meta> tags.
-  #}
+  {% if data.isDev %}
+    {# For live reload #}
+    <link href="http://localhost:9002/wp/site.css" rel="stylesheet" />
+  {% endif %}
 {% endblock %}
 
 {% block beforeMain %}
@@ -49,4 +49,11 @@
     </ul>
   </footer>
 </div>{# Close .bp-wrapper #}
+{% endblock %}
+
+{% block extraBody %}
+  {# For live reload #}
+  {% if data.isDev %}
+    <script src="http://localhost:9002/wp/site.js"></script>
+  {% endif %}
 {% endblock %}
