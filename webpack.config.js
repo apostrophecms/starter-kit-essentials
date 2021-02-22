@@ -13,15 +13,17 @@ module.exports = {
   target: process.env.IE11 ? 'es5' : (mode === 'development') ? 'web' : 'es5',
   entry: [ './src/index.js', './src/index.scss' ],
   output: {
-    ...((mode === 'development') ? {
-      filename: 'site.js',
-      publicPath: publicOutputPath
-    } : {
-      path: path.resolve(
-        __dirname, 'modules/asset/ui/public'
-      ),
-      filename: 'site.js'
-    })
+    ...((mode === 'development')
+      ? {
+        filename: 'site.js',
+        publicPath: publicOutputPath
+      }
+      : {
+        path: path.resolve(
+          __dirname, 'modules/asset/ui/public'
+        ),
+        filename: 'site.js'
+      })
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -29,24 +31,26 @@ module.exports = {
       filename: 'site.css'
     })
   ],
-  ...((mode === 'development') ? {
-    devServer: {
-      hot: true,
-      inline: true,
-      host: '0.0.0.0',
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
-      publicPath: '/wp/',
-      port: 9002,
-      allowedHosts: [
-        '.localhost'
-      ],
-      proxy: {
-        '/': 'http://localhost:3000'
+  ...((mode === 'development')
+    ? {
+      devServer: {
+        hot: true,
+        inline: true,
+        host: '0.0.0.0',
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
+        publicPath: '/wp/',
+        port: 9002,
+        allowedHosts: [
+          '.localhost'
+        ],
+        proxy: {
+          '/': 'http://localhost:3000'
+        }
       }
     }
-  } : {}),
+    : {}),
   module: {
     rules: [
       {
