@@ -14,8 +14,7 @@
       "./app.js",
       "./modules/**/*",
       "./lib/**/*.js",
-      "./views/**/*.html",
-      "./src/**/*"
+      "./views/**/*.html"
     ],
     "ignoreRoot": [
       ".git"
@@ -25,6 +24,7 @@
       "public/uploads",
       "public/apos-frontend/*.js",
       "modules/asset/ui/public/site.js",
+      "modules/asset/ui/public/site.css",
       "data"
     ],
     "ext": "json, js, html, scss, vue"
