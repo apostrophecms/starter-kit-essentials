@@ -6,7 +6,28 @@
   "scripts": {
     "start": "node app",
     "build": "webpack && node app @apostrophecms/asset:build",
-    "dev": "node app @apostrophecms/asset:build && webpack serve & ENV=dev node app"
+    "dev": "node app @apostrophecms/asset:build && webpack serve & ENV=dev nodemon app"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "watch": [
+      "./app.js",
+      "./modules/**/*",
+      "./lib/**/*.js",
+      "./views/**/*.html"
+    ],
+    "ignoreRoot": [
+      ".git"
+    ],
+    "ignore": [
+      "locales/*.json",
+      "public/uploads",
+      "public/apos-frontend/*.js",
+      "modules/asset/ui/public/site.js",
+      "modules/asset/ui/public/site.css",
+      "data"
+    ],
+    "ext": "json, js, html, scss, vue"
   },
   "repository": {
     "type": "git",
@@ -35,6 +56,7 @@
     "eslint": "^7.16.0",
     "eslint-config-apostrophe": "^3.4.0",
     "eslint-plugin-node": "^11.1.0",
+    "nodemon": "^2.0.7",
     "webpack-dev-server": "^3.11.2"
   }
 }

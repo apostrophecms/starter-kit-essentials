@@ -1,5 +1,5 @@
 module.exports = {
-  handlers(self, options) {
+  handlers(self) {
     return {
       '@apostrophecms/page:beforeSend': {
         webpack(req) {
