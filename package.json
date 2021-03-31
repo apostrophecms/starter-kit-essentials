@@ -6,16 +6,17 @@
   "scripts": {
     "start": "node app",
     "build": "webpack && node app @apostrophecms/asset:build",
-    "dev": "nodemon --delay 1000ms -x \"npm run build && ENV=dev nodemon app.js\""
+    "dev-serve": "webpack serve & nodemon app.js",
+    "dev": "node app @apostrophecms/asset:build && npm run dev-serve"
   },
   "nodemonConfig": {
+    "delay": 1000,
     "verbose": true,
     "watch": [
       "./app.js",
       "./modules/**/*",
       "./lib/**/*.js",
-      "./views/**/*.html",
-      "./src/**/*"
+      "./views/**/*.html"
     ],
     "ignoreRoot": [
       ".git"
