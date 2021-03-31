@@ -6,9 +6,11 @@
   "scripts": {
     "start": "node app",
     "build": "webpack && node app @apostrophecms/asset:build",
-    "dev": "node app @apostrophecms/asset:build && webpack serve & ENV=dev nodemon app"
+    "dev-serve": "webpack serve & nodemon app.js",
+    "dev": "node app @apostrophecms/asset:build && npm run dev-serve"
   },
   "nodemonConfig": {
+    "delay": 1000,
     "verbose": true,
     "watch": [
       "./app.js",
