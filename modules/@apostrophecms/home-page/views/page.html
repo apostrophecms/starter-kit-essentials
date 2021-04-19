@@ -5,7 +5,21 @@
 
 {% extends "layout.html" %}
 
+{% fragment item(page, name) %}
+  <div class="item">
+    {% area page, name %}
+  </div>
+{% endfragment %}
+
+{% fragment items(page) %}
+  <div class="items">
+    {% render item(page, 'one') %}
+    {% render item(page, 'two') %}
+  </div>
+{% endfragment %}
+
 {% block main %}
+  {% render items(data.page) %}
   <section class="bp-welcome">
     <div class="bp-welcome__verson-wrapper">
       <span class="bp-welcome__version">alpha</span>
