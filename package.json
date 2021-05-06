@@ -1,13 +1,13 @@
 {
   "name": "a3-boilerplate",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-beta.1",
   "description": "Apostrophe 3 Boilerplate Site",
   "main": "app.js",
   "scripts": {
     "start": "node app",
     "build": "webpack && node app @apostrophecms/asset:build",
     "dev-serve": "webpack serve & nodemon app.js",
-    "dev": "node app @apostrophecms/asset:build && npm run dev-serve"
+    "dev": "npm run dev-serve"
   },
   "nodemonConfig": {
     "delay": 1000,
@@ -40,7 +40,7 @@
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "apostrophe": "alpha",
+    "apostrophe": "beta",
     "babel-loader": "^8.2.2",
     "concurrently": "^3.5.1",
     "css-loader": "^5.0.1",
