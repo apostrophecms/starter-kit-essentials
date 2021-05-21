@@ -1,5 +1,3 @@
-const path = require('path');
-
 require('apostrophe')({
   shortName: 'a3-boilerplate',
   modules: {
@@ -12,15 +10,6 @@ require('apostrophe')({
     // Any modules that are not present by default in Apostrophe must at least
     // have a minimal configuration here to turn them on: `moduleName: {}`
     // ***********************************************************************
-    '@apostrophecms/express': {
-      options: {
-        session: {
-          // ⚠️ If this still says `undefined`, set a real secret (a random
-          // string)!
-          secret: undefined
-        }
-      }
-    },
     // `className` options set custom CSS classes for Apostrophe core widgets.
     '@apostrophecms/rich-text-widget': {
       options: {
@@ -37,11 +26,9 @@ require('apostrophe')({
         className: 'bp-video-widget'
       }
     },
-
     // `asset` supports the project's webpack build for client-side assets.
     asset: {},
     // The project's first custom page type.
     'default-page': {}
-
   }
 });
