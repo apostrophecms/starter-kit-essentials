@@ -21,13 +21,6 @@ require('apostrophe')({
         }
       }
     },
-    '@apostrophecms/template': {
-      options: {
-        // If a template is not found somewhere else, serve it from the
-        // root-level `views/` directory of the project.
-        viewsFolderFallback: path.join(__dirname, 'views')
-      }
-    },
     // `className` options set custom CSS classes for Apostrophe core widgets.
     '@apostrophecms/rich-text-widget': {
       options: {
