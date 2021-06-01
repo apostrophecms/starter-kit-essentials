@@ -18,8 +18,8 @@ module.exports = {
                 'strike',
                 'link',
                 '|',
-                'bullet_list',
-                'ordered_list'
+                'bulletList',
+                'orderedList'
               ],
               styles: [
                 {
