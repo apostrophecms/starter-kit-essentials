@@ -1,6 +1,6 @@
 {
   "name": "a3-boilerplate",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0",
   "description": "Apostrophe 3 Boilerplate Site",
   "main": "app.js",
   "scripts": {
@@ -35,7 +35,7 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "beta",
+    "apostrophe": "^3.0.0",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
