@@ -1,6 +1,6 @@
 {
   "name": "a3-boilerplate",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "description": "Apostrophe 3 Boilerplate Site",
   "main": "app.js",
   "scripts": {
