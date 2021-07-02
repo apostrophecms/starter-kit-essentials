@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "build": "node app @apostrophecms/asset:build",
-    "dev": "nodemon --delay 1000ms -x \"nodemon app.js\""
+    "dev": "nodemon --delay 1000ms -x \"nodemon app.js\"",
+    "build": "NODE_ENV=production node app @apostrophecms/asset:build",
+    "production-start": "NODE_ENV=production node app"
   },
   "nodemonConfig": {
     "delay": 1000,
