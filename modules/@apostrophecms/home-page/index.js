@@ -1,6 +1,7 @@
 module.exports = {
   options: {
-    label: 'Home Page'
+    label: 'Home Page',
+    i18n: {}
   },
   fields: {
     add: {

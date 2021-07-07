@@ -8,10 +8,10 @@
 {% block main %}
   <section class="bp-welcome">
     <div class="bp-welcome__verson-wrapper">
-      <span class="bp-welcome__version">alpha</span>
+      <span class="bp-welcome__version">{{ __t('alpha') }}</span>
     </div>
     <h1 class="bp-welcome__headline">
-      Welcome to Apostrophe 3
+      {{ __t('welcome') }}
     </h1>
     {% if not data.user %}
       {# Message only for logged out users. #}
