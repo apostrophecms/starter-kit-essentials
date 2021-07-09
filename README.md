@@ -17,18 +17,6 @@ This boilerplate is designed so you can install and start running it right away.
 - [ ] **Decide if you want hot reloading on.** This boilerplate uses nodemon to restart the app when files are changed. In `modules/apostrophecms/asset/index.js` there is an option enabled to refresh the browser on restart. If you like this, do nothing. If you don't, remove the option or set it to `false`. The option has no effect when the app is in production.
 - [ ] **Update the `className` options in `app.js`.** This option is set for core widget types to provide CSS styling hooks. It is namespaced with `bp-` for "boilerplate." You will likely want to update that to match your general CSS class naming practices.
 
-## Debugging the project in IE11
-
-This project is set up with "hot reloading" in webpack, so your changes to the frontend .js and .scss files reload automatically. This is great, but it is incompatible with IE11.
-
-So to test in IE11, use:
-
-```
-IE11=1 npm run dev
-```
-
-This is only an issue in development. In production the project-level frontend build output is transpiled to be IE11-compatible. (This does not include Apostrophe's admin UI.)
-
 ## You really want the docs
 
 Right now, [all the juicy info is in the A3 docs](https://a3.docs.apostrophecms.org), so head over there and start reading! This boilerplate project is a fun introduction to the UI, but you'll want to know more to really try it out.
