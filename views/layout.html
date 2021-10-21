@@ -9,13 +9,6 @@
   {% endif %}
 {% endblock %}
 
-{% block extraHead %}
-  {% if data.isDev %}
-    {# For live reload #}
-    <link href="http://localhost:9002/wp/site.css" rel="stylesheet" />
-  {% endif %}
-{% endblock %}
-
 {% block beforeMain %}
 <div class="bp-wrapper">
   <header class="bp-header">
@@ -49,11 +42,4 @@
     </ul>
   </footer>
 </div>{# Close .bp-wrapper #}
-{% endblock %}
-
-{% block afterAposScripts %}
-  {# For live reload #}
-  {% if data.isDev %}
-    <script src="http://localhost:9002/wp/site.js"></script>
-  {% endif %}
 {% endblock %}
