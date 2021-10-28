@@ -4,7 +4,7 @@
 
 Install dependencies: `npm install`
 
-Enter your MongoDB connection URI in .env
+Enter your MongoDB connection URI in `.env`
 
 ## Running the project
 
