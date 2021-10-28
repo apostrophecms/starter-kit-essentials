@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "dev": "nodemon app",
+    "dev": "nodemon",
     "build": "cross-env NODE_ENV=production node app @apostrophecms/asset:build",
     "serve": "cross-env NODE_ENV=production node app",
     "release": "npm install && npm run build && node app @apostrophecms/migration:migrate"
