@@ -23,13 +23,13 @@
       ".git"
     ],
     "ignore": [
-      "**/ui/apos",
-      "**/ui/src",
-      "**ui/public",
+      "**/ui/apos/",
+      "**/ui/src/",
+      "**ui/public/",
       "locales/*.json",
-      "public/uploads",
+      "public/uploads/",
       "public/apos-frontend/*.js",
-      "data"
+      "data/"
     ],
     "ext": "json, js, html, scss, vue"
   },
