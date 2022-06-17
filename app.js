@@ -1,16 +1,30 @@
+const path = require('path');
+const shortName = 'a3-boilerplate';
+
+const knex = require('knex')({
+  client: 'sqlite3',
+  connection: {
+    filename: path.join(__dirname, 'data', `${shortName}.sqlite`)
+  },
+  useNullAsDefault: true
+});
+
+const sql = require('@apostrophecms/sql')({
+  knex,
+  metadata: {
+    folder: path.join(__dirname, 'sql-metadata')
+  }
+});
+
 require('apostrophe')({
-  shortName: 'a3-boilerplate',
+  shortName,
   modules: {
-    // Apostrophe module configuration
-    // *******************************
-    //
-    // NOTE: most configuration occurs in the respective modules' directories.
-    // See modules/@apostrophecms/page/index.js for an example.
-    //
-    // Any modules that are not present by default in Apostrophe must at least
-    // have a minimal configuration here to turn them on: `moduleName: {}`
-    // ***********************************************************************
-    // `className` options set custom CSS classes for Apostrophe core widgets.
+    '@apostrophecms/db': {
+      options: {
+        // Substitute for mongodb database connection
+        client: sql
+      }
+    },
     '@apostrophecms/rich-text-widget': {
       options: {
         className: 'bp-rich-text'

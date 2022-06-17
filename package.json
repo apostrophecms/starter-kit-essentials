@@ -41,7 +41,10 @@
   "license": "MIT",
   "dependencies": {
     "apostrophe": "^3.0.0",
-    "normalize.css": "^8.0.1"
+    "knex": "^2.1.0",
+    "normalize.css": "^8.0.1",
+    "sqlite3": "^5.0.8",
+    "@apostrophecms/sql": "github:apostrophecms/sql"
   },
   "devDependencies": {
     "eslint": "^7.16.0",
