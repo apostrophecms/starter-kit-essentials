@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  apos-mongo:
+    image: mongo:6
+    container_name: apos-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: apos
+    volumes:
+      - ./tmp/mongo/data:/data/db
+    ports:
+      - 27017:27017
+
+  apos-app:
+    image: node:18-slim
+    container_name: apos-app
+    restart: always
+    environment:
+      APOS_MONGODB_URI: "mongodb://root:root@apos-mongo:27017/"
+    depends_on:
+      - apos-mongo
+    working_dir: /home/node/app
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 3000:3000
+    command: npm run dev
