@@ -50,5 +50,21 @@ module.exports = {
         ]
       }
     }
+  },
+  handlers(self) {
+    return {
+      // This will fail, that is expected, we are looking for the warning
+      'apostrophe:modulesRegistered': {
+        async getArticles() {
+          console.log('=================> init article <=================');
+          const req = self.apos.task.getReq();
+          const articles = await self.apos.modules.article.find(req, {}).toArray();
+          console.log('articles', require('util').inspect(articles, {
+            colors: true,
+            depth: 2
+          }));
+        }
+      }
+    };
   }
 };
