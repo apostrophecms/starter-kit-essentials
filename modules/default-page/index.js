@@ -5,6 +5,17 @@ module.exports = {
   },
   fields: {
     add: {
+      needRoom: {
+        type: 'boolean'
+      },
+      roomNumber: {
+        type: 'string',
+        min: 5,
+        max: 10,
+        if: {
+          needRoom: true
+        }
+      },
       main: {
         type: 'area',
         options: {
