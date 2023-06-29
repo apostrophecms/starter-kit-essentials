@@ -33,6 +33,10 @@ module.exports = {
                   tag: 'h4',
                   label: 'Heading 4 (H4)'
                 }
+              ],
+              insert: [
+                'table',
+                'image'
               ]
             },
             '@apostrophecms/image': {},
