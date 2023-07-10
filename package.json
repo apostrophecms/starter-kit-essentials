@@ -44,9 +44,8 @@
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.16.0",
-    "eslint-config-apostrophe": "^3.4.0",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint": "^8.0.0",
+    "eslint-config-apostrophe": "^4.0.0",
     "nodemon": "^3.0.1"
   }
 }
