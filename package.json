@@ -1,7 +1,7 @@
 {
-  "name": "a3-boilerplate",
+  "name": "starter-kit-essentials",
   "version": "1.0.0",
-  "description": "Apostrophe 3 Boilerplate Site",
+  "description": "Apostrophe 3 Essential Starter Kit Site",
   "main": "app.js",
   "scripts": {
     "start": "node app",
@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apostrophecms/a3-boilerplate"
+    "url": "https://github.com/apostrophecms/starter-kit-essentials"
   },
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
