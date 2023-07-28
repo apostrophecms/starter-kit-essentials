@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 require('apostrophe')({
   shortName: 'a3-boilerplate',
   modules: {

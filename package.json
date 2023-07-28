@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node app",
     "dev": "nodemon",
-    "build": "NODE_ENV=production node app @apostrophecms/asset:build",
-    "serve": "NODE_ENV=production node app",
+    "build": "cross-env NODE_ENV=production node app @apostrophecms/asset:build",
+    "serve": "cross-env NODE_ENV=production node app",
     "release": "npm install && npm run build && node app @apostrophecms/migration:migrate"
   },
   "nodemonConfig": {
@@ -41,7 +41,9 @@
   "license": "MIT",
   "dependencies": {
     "apostrophe": "^3.0.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "eslint": "^8.0.0",
