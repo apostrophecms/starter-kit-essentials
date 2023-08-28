@@ -5,6 +5,21 @@ module.exports = {
   },
   fields: {
     add: {
+      subtype: {
+        type: 'select',
+        label: 'Subtype',
+        choices: [
+          {
+            label: 'One',
+            value: 'one'
+          },
+          {
+            label: 'Two',
+            value: 'two'
+          }
+        ],
+        def: 'default'
+      },
       main: {
         type: 'area',
         options: {
@@ -51,6 +66,7 @@ module.exports = {
         label: 'Basics',
         fields: [
           'title',
+          'subtype',
           'main'
         ]
       }

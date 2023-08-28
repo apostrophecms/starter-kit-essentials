@@ -9,6 +9,10 @@ module.exports = {
         label: 'Default'
       },
       {
+        name: 'another-page',
+        label: 'Another'
+      },
+      {
         name: '@apostrophecms/home-page',
         label: 'Home'
       }
