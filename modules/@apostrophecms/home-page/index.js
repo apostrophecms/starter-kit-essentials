@@ -39,8 +39,7 @@ module.exports = {
                 'image'
               ]
             },
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {}
+            '@apostrophecms/image': {}
           }
         }
       }

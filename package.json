@@ -41,7 +41,8 @@
   "license": "MIT",
   "dependencies": {
     "apostrophe": "^3.53.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "@michelin-cxf/apostrophe-headless": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^8.0.0",
