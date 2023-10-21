@@ -25,7 +25,7 @@
     "ignore": [
       "**/ui/apos/",
       "**/ui/src/",
-      "**ui/public/",
+      "**/ui/public/",
       "locales/*.json",
       "public/uploads/",
       "public/apos-frontend/*.js",
