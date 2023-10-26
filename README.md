@@ -2,17 +2,18 @@
 
 ## Getting started
 
-This Starter Kit serves as a template for initiating new projects and is intended for use in two main ways:
+This Starter Kit, also known as a boilerplate project, serves as a template for initiating new projects and is intended for use in two main ways:
 
-1. **Using Our CLI Tool**: Run our CLI tool to clone this template locally, install its dependencies, and set up an initial admin user.
+1. **Using Our CLI Tool**: Run our [CLI tool](https://github.com/apostrophecms/cli) to clone this template locally, install its dependencies, and set up an initial admin user. You accomplish this using:
+   
+   `apos create <my-project-name>`
   
-2. **Manual Setup**: Manually clone this repository and install its dependencies using `npm install`. Add an initial admin user with `node app @apostrophecms/user:add admin admin`.
+2. **Manual Setup**: Manually `git clone` this repository and install its dependencies using `npm install`. Add an initial admin user with `node app @apostrophecms/user:add admin admin`.
 
-For those who need to create multiple projects with additional base modules, consider forking this repository into your organizational or personal GitHub account. Customize it to fit your needs. To use your customized template, run the following CLI command: 
+For those who need to create multiple projects with additional base modules, consider [forking this repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) into your organizational or personal GitHub account. Customize it to fit your needs. To use your customized template, run the following CLI command:
 
-```
-apos create <project-name> --starter=<repo-name>
-```
+  `apos create <project-name> --starter=<repo-name>`
+
 Here, `<repo-name>` should be the URL of your forked repository, excluding the `https://github.com/` part.
 
 **Note: This template is NOT designed to be installed into an existing project.**
