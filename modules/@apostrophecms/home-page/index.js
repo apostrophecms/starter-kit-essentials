@@ -42,6 +42,21 @@ module.exports = {
             '@apostrophecms/image': {}
           }
         }
+      },
+      objectField: {
+        type: 'object',
+        fields: {
+          add: {
+            content: {
+              type: 'area',
+              options: {
+                widgets: {
+                  '@apostrophecms/image': {}
+                }
+              }
+            }
+          }
+        }
       }
     },
     group: {
