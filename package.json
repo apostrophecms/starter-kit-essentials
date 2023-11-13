@@ -40,7 +40,7 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "apostrophecms/apostrophe#astro-core",
+    "apostrophe": "apostrophecms/apostrophe",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
