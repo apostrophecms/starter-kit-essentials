@@ -39,7 +39,10 @@ module.exports = {
                 'image'
               ]
             },
-            '@apostrophecms/image': {}
+            '@apostrophecms/image': {},
+            'house': {
+              size: 37
+            }
           }
         }
       },
@@ -51,7 +54,10 @@ module.exports = {
               type: 'area',
               options: {
                 widgets: {
-                  '@apostrophecms/image': {}
+                  '@apostrophecms/image': {},
+                  'house': {
+                    size: 37
+                  }
                 }
               }
             }
