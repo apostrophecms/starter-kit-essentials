@@ -36,7 +36,8 @@ module.exports = {
               ],
               insert: [
                 'table',
-                'image'
+                'image',
+                'ai'
               ]
             },
             '@apostrophecms/image': {},
