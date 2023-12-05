@@ -8,7 +8,9 @@
     "dev": "nodemon",
     "build": "NODE_ENV=production node app @apostrophecms/asset:build",
     "serve": "NODE_ENV=production node app",
-    "release": "npm install && npm run build && node app @apostrophecms/migration:migrate"
+    "release": "npm install && npm run build && node app @apostrophecms/migration:migrate",
+    "eslint": "eslint --ext .js,.vue .",
+    "lint": "npm run eslint"
   },
   "nodemonConfig": {
     "delay": 1000,
@@ -17,15 +19,14 @@
       "./app.js",
       "./modules/**/*",
       "./lib/**/*.js",
-      "./views/**/*.html"
+      "./views/**/*.html",
+      "./node_modules/apostrophe/modules/@apostrophecms/**/*",
+      "./node_modules/apostrophe/index.js"
     ],
     "ignoreRoot": [
       ".git"
     ],
     "ignore": [
-      "**/ui/apos/",
-      "**/ui/src/",
-      "**/ui/public/",
       "locales/*.json",
       "public/uploads/",
       "public/apos-frontend/*.js",
@@ -40,7 +41,7 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^3.53.0",
+    "apostrophe": "github:apostrophecms/apostrophe#vue3-migration",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
