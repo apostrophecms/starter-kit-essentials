@@ -8,7 +8,8 @@ module.exports = {
         options: {
           widgets: {
             '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {}
+            '@apostrophecms/image': {},
+            '@apostrophecms/video': {}
           }
         }
       },
@@ -18,7 +19,8 @@ module.exports = {
         options: {
           widgets: {
             '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {}
+            '@apostrophecms/image': {},
+            '@apostrophecms/video': {}
           }
         }
       }

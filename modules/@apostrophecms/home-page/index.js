@@ -40,9 +40,7 @@ module.exports = {
               ]
             },
             '@apostrophecms/image': {},
-            'house': {
-              size: 37
-            },
+            '@apostrophecms/video': {},
             'two-column': {}
           }
         }
@@ -55,10 +53,7 @@ module.exports = {
               type: 'area',
               options: {
                 widgets: {
-                  '@apostrophecms/image': {},
-                  'house': {
-                    size: 37
-                  }
+                  '@apostrophecms/image': {}
                 }
               }
             }
