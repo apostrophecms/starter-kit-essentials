@@ -39,7 +39,29 @@ module.exports = {
                 'image'
               ]
             },
-            '@apostrophecms/image': {}
+            '@apostrophecms/image': {},
+            'house': {
+              size: 37
+            },
+            'two-column': {}
+          }
+        }
+      },
+      objectField: {
+        type: 'object',
+        fields: {
+          add: {
+            content: {
+              type: 'area',
+              options: {
+                widgets: {
+                  '@apostrophecms/image': {},
+                  'house': {
+                    size: 37
+                  }
+                }
+              }
+            }
           }
         }
       }

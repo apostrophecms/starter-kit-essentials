@@ -40,7 +40,11 @@ module.exports = {
                 'image'
               ]
             },
-            '@apostrophecms/image': {}
+            '@apostrophecms/image': {},
+            'house': {
+              size: 37
+            },
+            'two-column': {}
           }
         }
       }
