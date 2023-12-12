@@ -40,9 +40,8 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^3.53.0",
-    "normalize.css": "^8.0.1",
-    "@michelin-cxf/apostrophe-headless": "apostrophecms/external-front"
+    "apostrophe": "apostrophecms/apostrophe",
+    "normalize.css": "^8.0.1"
   },
   "devDependencies": {
     "eslint": "^8.0.0",
