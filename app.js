@@ -1,5 +1,6 @@
 require('apostrophe')({
   shortName: 'a3-boilerplate',
+  bundles: [ '@apostrophecms/blog' ],
   modules: {
     // Apostrophe module configuration
     // *******************************
@@ -21,6 +22,8 @@ require('apostrophe')({
     asset: {},
     // The project's first custom page type.
     'default-page': {},
-    'two-column-widget': {}
+    'two-column-widget': {},
+    '@apostrophecms/blog': {},
+    '@apostrophecms/blog-page': {}
   }
 });
