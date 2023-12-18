@@ -16,4 +16,5 @@ node_modules
 /public/css/master-*.less
 .jshintrc
 .DS_Store
+.env
 
