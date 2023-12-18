@@ -44,6 +44,13 @@ module.exports = {
             '@apostrophecms/video': {}
           }
         }
+      },
+      aposTranslationMeta: {
+        type: 'tmeta',
+        label: 'Translation meta debug',
+        help: 'It is here because apos needs field in ' +
+          'order to save our meta (it needs a core fix). It also showcases ' +
+          'the meta data saved in the DB for the need of the demo.'
       }
     },
     group: {
@@ -53,7 +60,24 @@ module.exports = {
           'title',
           'main'
         ]
+      },
+      debug: {
+        label: 'Debug',
+        fields: [
+          'aposTranslationMeta'
+        ]
       }
     }
+  },
+
+  init(self) {
+    self.apos.schema.addFieldType({
+      name: 'tmeta',
+      vueComponent: 'TranslationMetaField',
+      async convert(req, field, data, destination) {
+        destination[field.name] = data[field.name];
+      },
+      def: null
+    });
   }
 };

@@ -1,6 +1,11 @@
+require('dotenv').config();
+
 require('apostrophe')({
   shortName: 'a3-boilerplate',
   modules: {
+    '@apostrophecms/translation': {},
+    'deepl-provider': {},
+
     // Apostrophe module configuration
     // *******************************
     //
