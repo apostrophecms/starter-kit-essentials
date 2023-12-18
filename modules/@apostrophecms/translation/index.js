@@ -15,7 +15,7 @@ module.exports = {
   handlers(self) {
     return {
       // Translate the document.
-      '@apostrophecms/doc-type:beforeLocalized': {
+      '@apostrophecms/doc-type:beforeLocalize': {
         // `draft` is the document to translate
         // `source` is the locale to translate from
         // `target` is the locale to translate to
@@ -36,23 +36,38 @@ module.exports = {
 
       // Manage the document translation meta. Set state to `finalized` if
       // when appropriate, do not copy the meta to the published document.
-      '@apostrophecms/doc-type:beforePublished': {
+      '@apostrophecms/doc-type:afterPublish': {
         async manageTranslationMeta(req, {
           firstTime, draft, published
         }) {
+          delete published.aposTranslationMeta;
+          // await self.apos.doc.db.updateOne({
+          //   _id: published._id
+          // }, {
+          //   $unset: {
+          //     aposTranslationMeta: 1
+          //   }
+          // });
+
           const meta = draft.aposTranslationMeta;
           if (!meta || meta.state === 'finalized') {
             return;
           }
 
-          if (self.getProvider(draft.aposTranslationMeta?.provider.id)) {
+          if (!self.getProvider(draft.aposTranslationMeta?.provider.id)) {
             return;
           }
 
           if (meta.state === 'translated') {
-            draft.aposTranslationMeta.state = 'finalized';
+            // draft.aposTranslationMeta.state = 'finalized';
+            await self.apos.doc.db.updateOne({
+              _id: draft._id
+            }, {
+              $set: {
+                'aposTranslationMeta.state': 'finalized'
+              }
+            });
           }
-          delete published.aposTranslationMeta;
         }
       }
     };
