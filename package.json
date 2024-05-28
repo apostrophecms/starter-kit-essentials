@@ -17,7 +17,9 @@
       "./app.js",
       "./modules/**/*",
       "./lib/**/*.js",
-      "./views/**/*.html"
+      "./views/**/*.html",
+      "./node_modules/@apostrophecms-pro/seo-assistant/index.js",
+      "./node_modules/@apostrophecms-pro/seo-assistant/modules/**/*"
     ],
     "ignoreRoot": [
       ".git"
@@ -40,7 +42,10 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^4.0.0",
+    "@apostrophecms-pro/automatic-translation": "github:apostrophecms/automatic-translation",
+    "@apostrophecms-pro/seo-assistant": "github:apostrophecms/seo-assistant#seo-assistant",
+    "@apostrophecms/seo": "^1.2.1",
+    "apostrophe": "github:apostrophecms/apostrophe#main",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
