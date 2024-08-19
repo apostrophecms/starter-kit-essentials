@@ -1,5 +1,3 @@
-console.log('loading');
-
 module.exports = {
   options: {
     forbiddenSlugs: [
