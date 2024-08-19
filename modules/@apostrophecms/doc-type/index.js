@@ -9,7 +9,6 @@ module.exports = {
     return {
       beforeSave: {
         checkForbiddenSlugs(req, doc) {
-          console.log(doc.slug);
           if (self.options.forbiddenSlugs.includes(doc.slug)) {
             const e = self.apos.error('invalid', 'That slug is reserved.');
             e.path = 'slug';
