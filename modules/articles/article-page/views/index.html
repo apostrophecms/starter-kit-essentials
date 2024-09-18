@@ -1,0 +1,20 @@
+{% import '@apostrophecms/pager:macros.html' as pager with context %}
+
+{% extends "layout.html" %}
+
+{% block main %}
+  <section class="index-page">
+    <pre>
+      genre: {{ data.piecesFilters.genre | json }}
+      category: {{ data.piecesFilters.category | json }}
+    </pre>
+    <header class="index__header">
+      <h1>{{ data.page.title }}</h1>
+    </header>
+    {% for article in data.pieces %}
+      <h2>{{ article.title }}</h2>
+    {% endfor %}
+
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  </section>
+{% endblock %}

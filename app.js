@@ -1,5 +1,6 @@
 require('apostrophe')({
   shortName: 'a3-boilerplate',
+  nestedModuleSubdirs: true,
   modules: {
     // Apostrophe module configuration
     // *******************************

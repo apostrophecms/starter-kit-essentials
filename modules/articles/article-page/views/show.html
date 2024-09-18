@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% set article = data.piece %}
+
+{% block main %}
+  <article class="article-show">
+    <header>
+      <div class="meta">{{ data.page.title}}</div>
+      <h1>{{ data.piece.title }}</h1>
+    </header>
+  </article>
+{% endblock %}

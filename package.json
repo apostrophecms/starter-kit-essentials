@@ -40,7 +40,7 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^4.0.0",
+    "apostrophe": "github:apostrophecms/apostrophe#pro-6442-pieces-filter",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
