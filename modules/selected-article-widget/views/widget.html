@@ -1,0 +1,21 @@
+{% if data.widget._articles.length %}
+  {% for article in data.widget._articles %}
+    <div class="index__excerpt">
+      {% if not article._url %}
+          <p class="meta purple">
+            <em>You will need to publish an Article Index page for article links to work.</em>
+          </p>
+      {% endif %}
+      <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
+      <article>
+        {% if not apos.area.isEmpty(article, 'blurb') %}
+           <p class="index__blurb">{% area article, 'blurb' %}</p>
+        {% else %}
+          <p class="placeholder">No blurb for this article</p>
+        {% endif %}
+      </article>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>There are no articles selected yet.</p>
+{% endif %}

@@ -1,0 +1,17 @@
+{% import 'fragments.html' as fragments with context %}
+
+{% extends "layout.html" %}
+{% set article = data.piece %}
+
+{# article show page is full width #}
+{% block sideNav %}{% endblock %}
+
+{% block main %}
+  <article class="article-show">
+    <header>
+      <div class="meta">{{ data.page.title}}</div>
+      <h1>{{ data.piece.title }}</h1>
+    </header>
+    {% area article, 'main' %}
+  </article>
+{% endblock %}

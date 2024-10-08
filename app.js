@@ -1,5 +1,5 @@
 require('apostrophe')({
-  shortName: 'a3-boilerplate',
+  shortName: 'a4-playground',
   modules: {
     // Apostrophe module configuration
     // *******************************
@@ -29,6 +29,10 @@ require('apostrophe')({
     // `asset` supports the project's webpack build for client-side assets.
     asset: {},
     // The project's first custom page type.
-    'default-page': {}
+    'default-page': {},
+    article: {},
+    'article-page': {},
+    'article-widget': {},
+    'selected-article-widget': {}
   }
 });

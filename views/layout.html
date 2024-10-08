@@ -12,8 +12,26 @@
 {% block beforeMain %}
 <div class="bp-wrapper">
   <header class="bp-header">
-    <img class="bp-header__logo" src="/images/logo.png" alt="ApostropheCMS logo">
-    <nav class="bp-nav"></nav>
+    <a href="/" class="bp-header__logo-link">
+      <img class="bp-header__logo" src="/images/logo.png" alt="ApostropheCMS logo">
+    </a>
+      {# children of the home page #}
+      <nav class="bp-nav">
+        <ol class="nav-items">
+          {% for page in data.home._children %}
+            {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
+            <li class="nav-item">
+              <a class="nav-link" {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
+            </li>
+          {% endfor %}
+          {% if not data.user %}
+            <li class="nav-item nav-item--login">
+              <a class="nav-link nav-link--login" href="/login">Login</a>
+            </li>
+          {% endif %}
+        </ol>
+      </nav>
+    </div>
     {% if not data.user %}
       <a class="bp-button bp-header__login" href="/login">Login</a>
     {% endif %}
