@@ -1,4 +1,7 @@
-require('apostrophe')({
+import apostrophe from 'apostrophe';
+
+apostrophe({
+  root: import.meta,
   shortName: 'a3-boilerplate',
   modules: {
     // Apostrophe module configuration
