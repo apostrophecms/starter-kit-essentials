@@ -28,6 +28,7 @@ require('apostrophe')({
     },
     // `asset` supports the project's webpack build for client-side assets.
     asset: {},
+    '@apostrophecms/vite': {},
     // The project's first custom page type.
     'default-page': {},
     article: {},

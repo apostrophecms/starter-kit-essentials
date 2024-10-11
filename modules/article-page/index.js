@@ -1,3 +1,4 @@
+const path = require('node:path');
 module.exports = {
   extend: '@apostrophecms/piece-page-type',
   options: {
@@ -6,12 +7,62 @@ module.exports = {
   webpack: {
     bundles: {
       main: {}
+    },
+    extensions: {
+      topic: {
+        resolve: {
+          alias: {
+            Utils: path.join(process.cwd(), 'lib/utils/')
+          }
+        }
+      },
+      ext1 ({ mode, alias = {} }) {
+        return {
+          mode,
+          resolve: {
+            alias: {
+              ext1: 'ext1-path',
+              ...alias
+            }
+          }
+        };
+      }
+    },
+    extensionOptions: {
+      ext1: {
+        mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
+      }
     }
   },
   build: {
     vite: {
       bundles: {
         main: {}
+      },
+      extensions: {
+        topic: {
+          resolve: {
+            alias: {
+              Utils: path.join(process.cwd(), 'lib/utils/')
+            }
+          }
+        },
+        ext1 ({ mode, alias = {} }) {
+          return {
+            mode,
+            resolve: {
+              alias: {
+                ext1: 'ext1-path',
+                ...alias
+              }
+            }
+          };
+        }
+      },
+      extensionOptions: {
+        ext1: {
+          mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
+        }
       }
     }
   },
