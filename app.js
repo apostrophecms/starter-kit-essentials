@@ -28,11 +28,13 @@ require('apostrophe')({
     },
     // `asset` supports the project's webpack build for client-side assets.
     asset: {},
-    '@apostrophecms/vite': {},
+    // '@apostrophecms/vite': {},
     // The project's first custom page type.
     'default-page': {},
     article: {},
+    article2: {},
     'article-page': {},
+    'article2-page': {},
     'article-widget': {},
     'selected-article-widget': {}
   }

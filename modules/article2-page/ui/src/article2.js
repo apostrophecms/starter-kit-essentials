@@ -1,4 +1,6 @@
+export default () => {
   window.TESTBED = {
     ...(window.TESTBED || {}),
-    articlePagePublic: true
+    article2Page: true
   };
+};

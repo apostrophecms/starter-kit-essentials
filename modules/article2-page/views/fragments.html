@@ -1,0 +1,12 @@
+{% fragment indexItem(article) %}
+  <div class="index__excerpt">
+    <h2>
+      <a href="{{ article._url }}">{{ article.title }}</a>
+    </h2>
+    {% if not apos.area.isEmpty(article, 'blurb') %}
+      <p class="index__blurb">{% area article, 'blurb' %}</p>
+    {% else %}
+      <p class="placeholder">No blurb for this article</p>
+    {% endif %}
+  </div>
+{% endfragment %}
