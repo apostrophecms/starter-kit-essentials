@@ -1,6 +1,4 @@
+import lib from './lib';
 export default () => {
-  window.TESTBED = {
-    ...(window.TESTBED || {}),
-    articlePageIndex: true
-  };
+  lib();
 };
