@@ -17,18 +17,12 @@ module.exports = {
       }
     };
   },
-  handlers (self) {
-    return {
-      'apostrophe:modulesRegistered': {
-        injectReactHMR() {
-          self.apos.template.prepend({
-            where: 'head',
-            when: 'hmr',
-            bundler: 'vite',
-            component: 'todoapp:reactRefresh'
-          });
-        }
-      }
-    };
+  init(self) {
+    self.apos.template.prepend({
+      where: 'head',
+      when: 'hmr',
+      bundler: 'vite',
+      component: 'todoapp:reactRefresh'
+    });
   }
 };
