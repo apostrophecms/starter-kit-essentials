@@ -3,7 +3,8 @@ module.exports = {
   options: {
     alias: 'article2',
     label: 'Article 2',
-    pluralLabel: 'Articles 2'
+    pluralLabel: 'Articles 2',
+    shortcut: 'G,Shift+A'
   },
   fields: {
     add: {
