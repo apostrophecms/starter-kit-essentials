@@ -2,7 +2,7 @@ module.exports = {
   // When not in production, refresh the page on restart
   options: {
     // publicBundle: false,
-    hmr: 'apos',
+    // hmr: 'apos',
     refreshOnRestart: true,
     rebundleModules: {
       // Everything from article-page goes in article bundle

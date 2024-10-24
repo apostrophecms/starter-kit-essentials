@@ -38,6 +38,7 @@ require('apostrophe')({
     'article-page': {},
     'article2-page': {},
     'article-widget': {},
-    'selected-article-widget': {}
+    'selected-article-widget': {},
+    todoapp: {}
   }
 });

@@ -5,6 +5,10 @@ module.exports = {
   options: {
     types: [
       {
+        name: 'todoapp',
+        label: 'React Page'
+      },
+      {
         name: 'default-page',
         label: 'Default'
       },
