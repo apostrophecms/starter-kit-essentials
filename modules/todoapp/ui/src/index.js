@@ -5,10 +5,14 @@ import './app/index.css';
 
 export default () => {
   window.apos.util.onReady(() => {
-    const title = document.getElementById('react-app').dataset.title;
+    const mount = document.getElementById('react-app');
+    if (!mount) {
+      return;
+    }
+    const title = mount.dataset.title;
     const app = createElement(App, {
       title
     });
-    createRoot(document.getElementById('react-app')).render(app);
+    createRoot(mount).render(app);
   });
 };

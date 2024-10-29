@@ -13,14 +13,6 @@ module.exports = {
         label: 'Default'
       },
       {
-        name: 'article-page',
-        label: 'Article Page'
-      },
-      {
-        name: 'article2-page',
-        label: 'Article 2 Page'
-      },
-      {
         name: '@apostrophecms/home-page',
         label: 'Home'
       }

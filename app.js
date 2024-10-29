@@ -26,19 +26,13 @@ require('apostrophe')({
         className: 'bp-video-widget'
       }
     },
-    // `asset` supports the project's webpack build for client-side assets.
+    // `asset` supports the project's build for client-side assets.
     asset: {},
-    '@apostrophecms/vite': {
-      before: '@apostrophecms/asset'
-    },
+    // use vite for asset bundling and HMR in development
+    '@apostrophecms/vite': {},
     // The project's first custom page type.
     'default-page': {},
-    article: {},
-    article2: {},
-    'article-page': {},
-    'article2-page': {},
-    'article-widget': {},
-    'selected-article-widget': {},
+    // Example: React todo app
     todoapp: {}
   }
 });
