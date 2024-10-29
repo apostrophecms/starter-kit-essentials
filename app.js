@@ -1,5 +1,5 @@
 require('apostrophe')({
-  shortName: 'a4-playground',
+  shortName: 'a4-boilerplate',
   modules: {
     // Apostrophe module configuration
     // *******************************

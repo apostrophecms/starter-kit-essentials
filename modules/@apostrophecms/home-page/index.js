@@ -2,20 +2,6 @@ module.exports = {
   options: {
     label: 'Home Page'
   },
-  webpack: {
-    bundles: {
-      topic: {},
-      main: {}
-    }
-  },
-  build: {
-    vite: {
-      bundles: {
-        topic: {},
-        main: {}
-      }
-    }
-  },
   fields: {
     add: {
       main: {
@@ -54,9 +40,7 @@ module.exports = {
               ]
             },
             '@apostrophecms/image': {},
-            '@apostrophecms/video': {},
-            article: {},
-            'selected-article': {}
+            '@apostrophecms/video': {}
           }
         }
       }
