@@ -40,16 +40,19 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "@apostrophecms/vite": "github:apostrophecms/vite#initial-implementation",
+    "@apostrophecms/vite": "github:apostrophecms/vite",
     "@vitejs/plugin-react": "^4.3.3",
-    "apostrophe": "github:apostrophecms/apostrophe#feature-vite",
+    "apostrophe": "github:apostrophecms/apostrophe",
     "normalize.css": "^8.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.0.0",
     "eslint-config-apostrophe": "^4.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14"
   }
 }

@@ -13,6 +13,14 @@ function App(props) {
           count is {count}
         </button>
       </div>
+      <div class="text-center">
+        <span
+          class="box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2"
+        >
+          Hello World <br />
+          From Tailwind CSS
+        </span>
+      </div>
     </>
   );
 }
