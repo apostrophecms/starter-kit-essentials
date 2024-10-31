@@ -40,8 +40,8 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "@apostrophecms/vite": "github:apostrophecms/vite",
-    "apostrophe": "github:apostrophecms/apostrophe",
+    "@apostrophecms/vite": "1.0.0-beta.1",
+    "apostrophe": "^4.9.0",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
