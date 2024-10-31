@@ -21,7 +21,7 @@
           {% for page in data.home._children %}
             {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
             <li class="nav-item">
-              <a class="nav-link" {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
+              <a class="nav-link{{ (" current-page" if current) }}" href="{{ page._url }}">{{ page.title }}</a>
             </li>
           {% endfor %}
           {% if not data.user %}
@@ -31,7 +31,6 @@
           {% endif %}
         </ol>
       </nav>
-    </div>
     {% if not data.user %}
       <a class="bp-button bp-header__login" href="/login">Login</a>
     {% endif %}

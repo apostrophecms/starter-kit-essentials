@@ -26,13 +26,23 @@ require('apostrophe')({
         className: 'bp-video-widget'
       }
     },
-    // `asset` supports the project's build for client-side assets.
-    asset: {},
     // use vite for asset bundling and HMR in development
     '@apostrophecms/vite': {},
     // The project's first custom page type.
     'default-page': {},
-    // Example: React todo app
-    todoapp: {}
+
+    // `asset` supports the project's build for client-side assets.
+    // Adds a filter to the Nunjucks template engine for converting objects to
+    // HTML attribute strings and an API route for storing counter apps.
+    // Alias (nunjucks): `app`
+    asset: {},
+
+    // The page for all counter app widgets. It also takes care of injecting the
+    // framework specific HMR code.
+    'counter-page': {},
+    // The counter app widgets
+    'counter-react-widget': {},
+    'counter-svelte-widget': {},
+    'counter-vue-widget': {}
   }
 });

@@ -1,12 +1,31 @@
-# ApostropheCMS essentials starter kit
+# ApostropheCMS and Vite demo (based on the essentials starter kit)
 
-## Tailwind CSS configuration steps
+## Counter apps as widgets (React, Vue, Svelte) (demo)
 
-Following the official guide: https://tailwindcss.com/docs/guides/vite
+All frameworks are integrated via single project level `apos.vite.config.mjs` file.
 
-1. Install Tailwind CSS
+The default template when creating Vite app for React, Vue, or Svelte is a counter app. In this demo those are ported to ApostropheCMS widgets: `counter-react-widget`, `counter-vue-widget`, and `counter-svelte-widget` respectively. The respective UI code can be found in `ui/src` directories of these modules. Every widget has its own bundle, which is loaded only when the widget is present on the page (and no user is logged in).
+
+Additionally, the default counter apps are enhanced to get initial data (props) from the server and communicate their state back to the server.
+
+A page module `modules/counter-page` is created to demonstrate the usage of these widgets. It has an area `main` where you can add the widgets. 
+
+The `modules/asset` module provides common features shared between all widgets and some integrations frameowrk specific integrations:
+- a common CSS file to style the original counter app in a similar to the original style
+- integrates `tailwindcss` for styling (see below)
+- provides common nunjucks filter to stringify objects for `data-*` attributes
+- a `counter` API endpoint to save the counter value per widget (with fake in-memory storage instead of a real database - all values will be "forgotten" after a server restart)
+- the React refresh runtime injection, required for React HMR with Vite
+
+## Tailwind CSS configuration steps (demo)
+
+The following steps were performed to integrate Tailwind CSS with ApostropheCMS, following the official guide: https://tailwindcss.com/docs/guides/vite
+
+It's not needed to follow these steps to use this demo. They are provided as a reference for those who want to integrate Tailwind CSS with ApostropheCMS.
+
+1. Install Tailwind CSS (we skip `postcss` because it's internally managed by `vite`):
 ```bash
-npm install -D tailwindcss postcss autoprefixer
+npm install -D tailwindcss autoprefixer
 ```
 
 2. Init
@@ -28,6 +47,21 @@ module.exports = {
   },
   plugins: [],
 }
+```
+Edit `apos.vite.config.mjs` to exclude the nunjucks templates from triggering page reloads:
+```js
+  // ...
+  server: {
+    watch: {
+      // So that Tailwind CSS changes in the nunjucks templates do not trigger
+      // page reloads. This is done by `nodemon` because we need a process restart.
+      ignored: [
+        path.join(__dirname, 'modules/views/**/*.html'),
+        path.join(__dirname, 'views/**/*.html')
+      ]
+    }
+  }
+  // ...
 ```
 
 4. Create `./modules/asset/ui/src/tailwind.css` with the following content:
@@ -53,20 +87,10 @@ import './tailwind.css'
     </div>
 ```
 
-7. Edit `./modules/todoapp/ui/src/app/App.jsx` and add (UI testing):
+7. `npm run dev`
 
-```jsx
-      <div class="text-center">
-        <span
-          class="box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2"
-        >
-          Hello World <br />
-          From Tailwind CSS
-        </span>
-      </div>
-```
+Tailwind now works for both server-side and client-side rendering (HMR included). The original starter kit styles are preserved.
 
-8. `npm run dev`
 
 ## Getting started
 

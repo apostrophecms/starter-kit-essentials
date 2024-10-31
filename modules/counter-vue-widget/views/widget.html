@@ -1,0 +1,6 @@
+<div
+  data-apos-vue-widget
+  data-apos-edit-mode="{{ data.widget._edit }}"
+  data-apos-widget-id="{{ data.widget._id }}" 
+  data-apos-widget='{{ data.widget | merge({ counter: apos.@app.counters(data.widget._id) }) | toAttributeValue }}'
+  data-apos-options='{{ data.options | toAttributeValue }}'></div>

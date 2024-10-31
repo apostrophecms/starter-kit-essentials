@@ -5,8 +5,8 @@ module.exports = {
   options: {
     types: [
       {
-        name: 'todoapp',
-        label: 'React Page'
+        name: 'counter-page',
+        label: 'Counter Apps Page'
       },
       {
         name: 'default-page',
