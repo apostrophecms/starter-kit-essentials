@@ -23,9 +23,7 @@
       ".git"
     ],
     "ignore": [
-      "**/ui/apos/",
-      "**/ui/src/",
-      "**/ui/public/",
+      "**/ui/",
       "locales/*.json",
       "public/uploads/",
       "public/apos-frontend/*.js",
