@@ -1,0 +1,12 @@
+services:
+  mongo:
+    image: mongo:8
+    # Preserve data between container restarts
+    volumes:
+      - apos-mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+volumes:
+  apos-mongodb-data:

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extend: '@apostrophecms/page-type',
   options: {
     label: 'Counter Apps Page'
@@ -9,15 +9,16 @@ module.exports = {
         type: 'area',
         options: {
           widgets: {
-            'counter-react': {
+            'counter-vue': {
               example: 'options from the page schema'
             },
             'counter-svelte': {
               example: 'options from the page schema'
             },
-            'counter-vue': {
+            'counter-react': {
               example: 'options from the page schema'
             }
+
           }
         }
       }

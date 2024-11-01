@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Vue Counter App'

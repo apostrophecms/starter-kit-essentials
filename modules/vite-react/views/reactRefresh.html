@@ -1,5 +1,7 @@
+{# From the official documentation for custom integration of React:
+https://vite.dev/guide/backend-integration.html #}
 <script type="module">
-  import RefreshRuntime from 'http://localhost:3000/__vite/@react-refresh'
+  import RefreshRuntime from '{{ apos.asset.devServerUrl("/@react-refresh") }}'
   RefreshRuntime.injectIntoGlobalHook(window)
   window.$RefreshReg$ = () => {}
   window.$RefreshSig$ = () => (type) => type

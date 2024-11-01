@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     './apos-build/@apostrophecms/vite/default/src/**/*.{js,jsx}',
     './modules/**/views/**/*.html',

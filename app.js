@@ -1,5 +1,8 @@
-require('apostrophe')({
+import apostrophe from 'apostrophe';
+
+apostrophe({
   shortName: 'a4-playground',
+  root: import.meta,
   modules: {
     // Apostrophe module configuration
     // *******************************
@@ -36,6 +39,11 @@ require('apostrophe')({
     // HTML attribute strings and an API route for storing counter apps.
     // Alias (nunjucks): `app`
     asset: {},
+
+    // `vite-react` adds React support to the project's Vite configuration.
+    // Also adds the React Refresh runtime to the head of the page in HMR mode.
+    // All other frameworks are configured in the `apos.vite.config.js` file.
+    'vite-react': {},
 
     // The page for all counter app widgets. It also takes care of injecting the
     // framework specific HMR code.

@@ -9,6 +9,13 @@
   {% endif %}
 {% endblock %}
 
+{% block extraHead %}
+<script>
+  {# Firefox FOUC fix #}
+  let __FF__;
+</script>
+{% endblock %}
+
 {% block beforeMain %}
 <div class="bp-wrapper">
   <header class="bp-header">
@@ -24,11 +31,6 @@
               <a class="nav-link{{ (" current-page" if current) }}" href="{{ page._url }}">{{ page.title }}</a>
             </li>
           {% endfor %}
-          {% if not data.user %}
-            <li class="nav-item nav-item--login">
-              <a class="nav-link nav-link--login" href="/login">Login</a>
-            </li>
-          {% endif %}
         </ol>
       </nav>
     {% if not data.user %}

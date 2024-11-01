@@ -1,0 +1,5 @@
+<div
+  data-apos-{{ data.framework }}-widget
+  data-apos-widget-id="{{ data.widget._id }}" 
+  data-apos-widget='{{ data.widget | merge({ counter: data.counter }) | toAttributeValue }}'
+  data-apos-options='{{ data.options | toAttributeValue }}'></div>

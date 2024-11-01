@@ -1,42 +1,33 @@
-module.exports = {
-  options: {
-    // To not clash with the `@apostrophecms/asset` alias. Used in
-    // the nunjucks templates.
-    alias: '@app'
-  },
-  init(self) {
-    // Add the React Refresh runtime to the head of the page.
-    self.apos.template.prepend({
-      where: 'head',
-      when: 'hmr',
-      bundler: 'vite',
-      component: 'asset:reactRefresh'
-    });
+export default {
 
-    // A helper to convert an object to an attribute value
+  init(self) {
+    // A nunjucks filter to convert an object to an attribute value
     self.apos.template.addFilter({
       toAttributeValue: self.toAttributeValue
     });
 
     // Imitate a database
     self.counters = {};
-
-    // Add `action` because we need a route to count the number of clicks.
-    self.enableBrowserData();
   },
 
   components(self) {
     return {
-      reactRefresh(req, data) {
-        return {};
-      }
-    };
-  },
-
-  helpers(self) {
-    return {
-      counters(widgetId) {
-        return self.counters[widgetId] || 0;
+      // This component is generating the rooot element used for mounting the counter
+      // app. It also serializes the data to be used in the client-side app and
+      // assigns it to the `data-` attributes of the root element.
+      // The client side code then reads and deserializes this data and
+      // sends it to the respective `APP.xxx` component via `props`.
+      async counterApp(req, {
+        framework, widget, page, options
+      }) {
+        // You might fetch some data from the DB here.
+        return {
+          framework,
+          widget,
+          page,
+          options,
+          counter: self.counters[widget._id] || 0
+        };
       }
     };
   },
@@ -51,18 +42,6 @@ module.exports = {
         return self.apos.template.safe(
           self.apos.util.escapeHtml(json, { single: true })
         );
-      }
-    };
-  },
-
-  extendMethods(self) {
-    return {
-      getBrowserData(_super, req) {
-        const data = _super(req);
-        return {
-          ...data,
-          action: self.action
-        };
       }
     };
   },

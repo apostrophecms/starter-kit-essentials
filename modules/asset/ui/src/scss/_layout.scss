@@ -6,11 +6,11 @@ body,
   flex-direction: column;
 }
 
-// [data-apos-refreshable],
-// .bp-wrapper,
-// main {
-//   flex-grow: 1;
-// }
+[data-apos-refreshable],
+.bp-wrapper,
+main {
+  flex-grow: 1;
+}
 
 body {
   min-height: 100vh;

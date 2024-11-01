@@ -7,7 +7,7 @@ const { id, options, widget } = defineProps({
   options: Object
 });
 
-const count = ref(0);
+const count = ref(widget.counter);
 const message = ref('');
 const debugState = ref(false);
 const debugLabel = `${debugState.value ? 'Hide' : 'Show'} Debug`;

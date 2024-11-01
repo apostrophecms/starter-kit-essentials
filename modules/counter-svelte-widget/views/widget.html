@@ -1,6 +1,10 @@
-<div
-  data-apos-svelte-widget
-  data-apos-edit-mode="{{ data.widget._edit }}"
-  data-apos-widget-id="{{ data.widget._id }}" 
-  data-apos-widget='{{ data.widget | merge({ counter: apos.@app.counters(data.widget._id) }) | toAttributeValue }}'
-  data-apos-options='{{ data.options | toAttributeValue }}'></div>
+{#
+  Send the data to the counterApp component and let it render the markup.
+  `options` is the object defined in the area schema. 
+ #} 
+{% component 'asset:counterApp' with { 
+  framework: "svelte",
+  widget: data.widget, 
+  page: data.page,
+  options: data.options
+} %}
