@@ -10,7 +10,7 @@ const { id, options, widget } = defineProps({
 const count = ref(widget.counter);
 const message = ref('');
 const debugState = ref(false);
-const debugLabel = `${debugState.value ? 'Hide' : 'Show'} Debug`;
+const debugLabel = computed(() => `${debugState.value ? 'Hide' : 'Show'} Debug`);
 const debug = JSON.stringify({ id, widget, options }, null, 2);
 const baseUrl = computed(() => window.apos.assetBaseUrl);
 

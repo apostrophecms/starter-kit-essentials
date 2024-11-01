@@ -27,6 +27,7 @@
 
   const onDebugClick = () => {
     debugState = !debugState;
+    debugLabel = debugState ? "Hide Debug" : "Show Debug";
   };
 </script>
 
