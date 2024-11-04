@@ -41,7 +41,7 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "github:haroun/apostrophe",
+    "apostrophe": "^4.9.0",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
