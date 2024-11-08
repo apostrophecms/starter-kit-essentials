@@ -8,6 +8,8 @@ import path from 'node:path';
 
 export default defineConfig({
   plugins: [
+    // See ./modules/vite-react/index.js for ReactJS integration via module
+    // `build` configuration.
     // react(),
     vue(),
     svelte({
@@ -21,8 +23,6 @@ export default defineConfig({
       // So that Tailwind CSS changes in the nunjucks templates do not trigger Vite
       // page reloads. This is done by `nodemon` because we need a process restart.
       ignored: [
-        // path.join(__dirname, 'modules/views/**/*.html'),
-        // path.join(__dirname, 'views/**/*.html')
         '**/modules/views/**/*.html',
         '**/views/**/*.html'
       ]
