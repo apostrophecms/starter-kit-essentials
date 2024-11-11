@@ -1,21 +1,8 @@
 import './tailwind.css';
+import { parse } from './player.js';
 
 export default () => {
-  apos.util.parsePlayerData = (el) => {
-    if (!el) {
-      return {};
-    }
-
-    const id = el.dataset.aposWidgetId;
-    const editMode = el.dataset.aposEditMode;
-    const widget = el.dataset.aposWidget;
-    const options = el.dataset.aposOptions;
-
-    return {
-      id,
-      editMode,
-      widget: JSON.parse(widget || '{}'),
-      options: JSON.parse(options || '{}')
-    };
-  };
+  // Demonstrating how to pass helper functions to be used by other modules
+  // apart from a direct import via aliasing.
+  apos.util.parsePlayerData = parse;
 };

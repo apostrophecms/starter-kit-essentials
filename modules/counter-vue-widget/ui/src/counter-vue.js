@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { parse } from 'Modules/asset/player.js';
 import App from './app/App.vue';
 
 // Environments are available here (`import.meta.env.PROD`, `import.meta.env.DEV`, etc.)
@@ -16,12 +17,13 @@ function player(el) {
     return;
   }
   // 2. Grab the data from the `data-*` attributes.
-  // See `modules/asset/ui/src/index.js` for the implementation
+  // See `modules/asset/ui/src/player.js` for the implementation.
+  // Showcasing module aliasing (see the import statement at the top).
   const {
     id,
     widget,
     options
-  } = apos.util.parsePlayerData(el);
+  } = parse(el);
   // 3. Mount and render the app
   createApp(App, {
     id,
