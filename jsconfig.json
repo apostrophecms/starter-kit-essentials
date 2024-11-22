@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./apos-build/@apostrophecms/vite/default",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  },
+  "exclude": [
+    "apos-build/@apostrophecms/vite/default/dist",
+    "node_modules",
+    "public",
+    "data"
+  ]
+}
