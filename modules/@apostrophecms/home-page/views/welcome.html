@@ -1,0 +1,16 @@
+    <div class="bp-welcome__area">
+      <p>This is the welcome include</p>
+      {% if data.user %}
+        {# Message only for logged in users. #}
+        {% if not data.query['apos-edit'] %}
+          <p>
+            Enter <span class="bp-mode">Edit</span> mode from the admin bar <span style="display:inline-block; transform: rotate(45deg)">👆</span> to begin.
+          </p>
+        {% else %}
+          <p>
+            Add and edit content below in the content area. 👇
+          </p>
+        {% endif %}
+      {% endif %}
+      {% area data.page, 'main' %}
+    </div>
