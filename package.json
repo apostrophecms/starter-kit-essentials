@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "ApostropheCMS Essential Starter Kit Site",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "node app",
     "dev": "nodemon",
@@ -23,15 +24,13 @@
       ".git"
     ],
     "ignore": [
-      "**/ui/apos/",
-      "**/ui/src/",
-      "**/ui/public/",
+      "**/ui/",
       "locales/*.json",
       "public/uploads/",
       "public/apos-frontend/*.js",
       "data/"
     ],
-    "ext": "json, js, html, scss, vue"
+    "ext": "json, js, cjs, html"
   },
   "repository": {
     "type": "git",
@@ -40,10 +39,12 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^4.0.0",
+    "@apostrophecms/vite": "^1.0.0",
+    "apostrophe": "^4.9.0",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.0.0",
     "eslint-config-apostrophe": "^4.0.0",
     "nodemon": "^3.0.1"

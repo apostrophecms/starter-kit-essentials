@@ -1,5 +1,8 @@
-require('apostrophe')({
-  shortName: 'a3-boilerplate',
+import apostrophe from 'apostrophe';
+
+apostrophe({
+  root: import.meta,
+  shortName: 'a4-boilerplate',
   modules: {
     // Apostrophe module configuration
     // *******************************
@@ -26,8 +29,10 @@ require('apostrophe')({
         className: 'bp-video-widget'
       }
     },
-    // `asset` supports the project's webpack build for client-side assets.
+    // `asset` supports the project's build for client-side assets.
     asset: {},
+    // use vite for asset bundling and hot module reloading
+    '@apostrophecms/vite': {},
     // The project's first custom page type.
     'default-page': {}
   }
