@@ -1,13 +1,164 @@
-{#
-  This is an example home page template. It inherits and extends a layout template
-  that lives in the top-level views/ folder for convenience
-#}
+{# Breakpoint test template #}
 
 {% extends "layout.html" %}
 
 {% block main %}
+  <!-- Fixed Nav (will convert to sticky in container) -->
+  <div class="fixed-nav">
+    Fixed Navigation Test
+  </div>
+
   <section class="bp-content">
     <h1>{{ data.page.title }}</h1>
     {% area data.page, 'main' %}
   </section>
+  <div class="breakpoint-test-container">
+    <!-- Breakpoint Indicator -->
+    <div class="breakpoint-indicator">
+      Works only on default sizes:
+      Current Breakpoint: <span class="breakpoint-label"></span>
+    </div>
+
+    <!-- Container Query Test -->
+    <div class="container-test-wrapper">
+      <div class="container-test-item">
+        <h3>Container Query Test</h3>
+        <div class="inner-element">
+          This element responds to its container size - it uses native container queries. Resize the window to see the effect.
+          <ul>
+        <li>Small: Coral</li>
+        <li>Medium: Blue</li>
+        <li>Large: Green</li>
+      </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Test box for color changes -->
+    <div class="test-box">
+      <h2>Breakpoint Color Indicator</h2>
+      <p>This box changes color at each breakpoint:</p>
+      <ul>
+        <li>Mobile (414x896): Coral</li>
+        <li>Tablet (1024x768): Blue</li>
+        <li>Desktop (1440x900): Green</li>
+      </ul>
+    </div>
+
+    <!-- Grid layout test -->
+    <div class="responsive-grid">
+      <div class="grid-item">1 column on mobile</div>
+      <div class="grid-item">2 columns on tablet</div>
+      <div class="grid-item">4 columns on desktop</div>
+      <div class="grid-item">Heights also change</div>
+    </div>
+
+    <!-- Aspect ratio test -->
+    <div class="aspect-box">
+      <h3>Aspect Ratio Test (Simple):</h3>
+      <ul>
+        <li>Mobile: max-aspect-ratio: 1/2 (Coral)</li>
+        <li>Square: aspect-ratio: 1/1 (Yellow)</li>
+        <li>Tablet: aspect-ratio: 4/3 (Blue)</li>
+        <li>Desktop: min-aspect-ratio: 3/2 (Green)</li>
+      </ul>
+    </div>
+
+    <!-- Aspect ratio range test -->
+    <div class="aspect-box range-test">
+      <h3>Aspect Ratio Test (Range):</h3>
+      <p>Tests min/max combination: between 1/1 and 4/3 (Purple)</p>
+    </div>
+
+    <!-- logical tests of margin and text direction-->
+    <div class="logical-properties-demo">
+      <div class="logical-test">
+        <h3>Logical Properties Test (LTR)</h3>
+        <p>Shows margin-inline and padding-block changes</p>
+      </div>
+
+
+      <div class="logical-test" dir="rtl">
+        <h3>Logical Properties Test (RTL)</h3>
+        <p>نفس الخصائص تعمل من اليمين إلى اليسار</p>
+      </div>
+    </div>
+
+    <!-- Orientation test -->
+    <div class="orientation-box"></div>
+
+    <!-- Nested container test -->
+    <div class="outer-container">
+      <div class="middle-container">
+        <div class="inner-container">
+          <div class="content">Testing nested container behavior</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modern viewport units test -->
+    <div class="modern-viewport-units">
+      <h3>Modern Viewport Units Test</h3>
+      <div class="unit-test-item">Small viewport units (sv*)</div>
+      <div class="unit-test-item">Large viewport units (lv*)</div>
+      <div class="unit-test-item">Dynamic viewport units (dv*)</div>
+    </div>
+
+    <!-- Viewport Units Test -->
+    <div class="viewport-units-test">
+      <h3>Viewport Units Test</h3>
+      <div class="viewport-width">50vw width</div>
+      <div class="viewport-height">25vh height</div>
+      <div class="viewport-min">50vmin width</div>
+      <div class="viewport-max">50vmax width</div>
+    </div>
+
+    <!-- Responsive Typography Test -->
+    <div class="typography-test">
+      <h3>Responsive Typography Test</h3>
+      <div class="fluid-text">Fluid Typography with clamp()</div>
+      <div class="calc-text">Fluid Typography with calc()</div>
+      <div class="viewport-text">Viewport Typography</div>
+    </div>
+
+    <!-- Complex Media Query Test -->
+    <div class="range-test">
+      <h3>Range Query Test</h3>
+      <p>This box uses the range syntax (240px <= width <= 1024px)</p>
+    </div>
+
+    <!-- Fixed Position with Viewport Units Test -->
+    <div class="fixed-viewport">
+      Fixed Position with Viewport Units
+    </div>
+
+    <!-- Logical Properties Test -->
+    <div class="logical-test">
+      <h3>Logical Properties Test</h3>
+      <p>Testing logical properties with container queries</p>
+    </div>
+
+    <!-- Custom Properties Test -->
+    <div class="custom-prop-test">
+      <h3>Custom Properties Test</h3>
+      <p>Testing custom properties at breakpoints</p>
+    </div>
+
+    <!-- Combined Features Test -->
+    <div class="combined-test">
+      <h3>Combined Features Test</h3>
+      <p>This section combines multiple features:</p>
+      <ul>
+        <li>Viewport width calculations</li>
+        <li>Clamp for padding</li>
+        <li>Fluid typography</li>
+        <li>Media queries</li>
+      </ul>
+    </div>
+
+    <!-- Size reference -->
+    <div class="size-reference">
+      Current dimensions: <span class="size-display"></span>
+    </div>
+  </div>
 {% endblock %}

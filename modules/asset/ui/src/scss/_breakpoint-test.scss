@@ -1,0 +1,637 @@
+/* ===========================================
+Base Configuration and Custom Properties
+=========================================== */
+:root {
+  --base-size: 1rem;
+  --base-color: #333;
+  --base-spacing: 1rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --base-size: 1.2rem;
+    --base-spacing: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --base-size: 1.4rem;
+    --base-spacing: 2rem;
+  }
+}
+
+/* ===========================================
+Base Container Styles
+=========================================== */
+.breakpoint-test-container {
+  padding: 20px;
+  font-family: system-ui, sans-serif;
+}
+
+.breakpoint-indicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+/* ===========================================
+  Fixed Position Test
+  (converts to sticky in container)
+ =========================================== */
+.fixed-nav {
+  position: fixed;
+  top: 200px;
+  left: 10px;
+  right: 0; /* Ensures full width */
+  width: 100%;
+  height: 20px;
+  background: #333;
+  color: white;
+  padding: 1rem;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.fixed-nav::after {
+  content: 'Fixed navbar (converts to sticky in container)';
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+/* Add spacing for the fixed nav */
+.bp-content {
+  margin-top: 80px; /* Height of nav + some extra space */
+}
+
+/* Test different heights at breakpoints */
+@media (max-width: 414px) {
+  .fixed-nav {
+    height: 50px;
+    padding: 0.5rem;
+  }
+
+  .bp-content {
+    margin-top: 70px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .fixed-nav {
+    height: 70px;
+    padding: 1.5rem;
+  }
+
+  .bp-content {
+    margin-top: 90px;
+  }
+}
+/* ===========================================
+Native Container Query Tests
+(Testing compatibility with our transformer)
+=========================================== */
+.container-test-wrapper {
+  container-type: inline-size;
+  resize: both;
+  overflow: auto;
+  min-height: 200px;
+  min-width: 200px;
+  border: 2px dashed #ccc;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+@container (max-width: 300px) {
+  .container-test-item {
+    background: #ff6b6b;
+    padding: 1rem;
+  }
+}
+
+@container (min-width: 301px) and (max-width: 600px) {
+  .container-test-item {
+    background: #45b7d1;
+    padding: 1.5rem;
+  }
+}
+
+@container (min-width: 601px) {
+  .container-test-item {
+    background: #96d474;
+    padding: 2rem;
+  }
+}
+
+/* ===========================================
+     Media Query to Container Query Tests
+     =========================================== */
+/* Default styles */
+.test-box {
+  padding: 20px;
+  margin: 20px 0;
+  background: #ff6b6b; /* Default coral */
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.grid-item {
+  padding: 20px;
+  background: #4ecdc4;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  min-height: 100px;
+}
+
+/* Media queries for transformation */
+@media (max-width: 414px) {
+  .test-box {
+    background: #ff6b6b; /* Coral for mobile */
+  }
+
+  .responsive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .breakpoint-label::after {
+    content: 'Mobile (414x896)';
+  }
+
+  .grid-item {
+    min-height: 100px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .test-box {
+    background: #45b7d1; /* Blue for tablet */
+  }
+
+  .responsive-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .breakpoint-label::after {
+    content: 'Tablet (1024x768)';
+  }
+
+  .grid-item {
+    min-height: 150px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .test-box {
+    background: #96d474; /* Green for desktop */
+  }
+
+  .responsive-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .breakpoint-label::after {
+    content: 'Desktop (1440x900)';
+  }
+
+  .grid-item {
+    min-height: 200px;
+  }
+}
+
+/* ===========================================
+     Aspect Ratio Tests
+     =========================================== */
+.aspect-box {
+  padding: 20px;
+  margin: 20px 0;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #debb27;
+  position: relative;
+}
+
+.aspect-box::after {
+  content: 'Non-matching aspect';
+  display: block;
+  margin-top: 10px;
+}
+
+/* Mobile aspect ratio */
+@media (max-aspect-ratio: 1/2) {
+  .aspect-box {
+    background: #ff6b6b;
+  }
+  .aspect-box::after {
+    content: 'Mobile aspect ratio (< 0.5)';
+  }
+}
+
+/* Square aspect ratio */
+@media (min-aspect-ratio: 0.95/1) and (max-aspect-ratio: 1.05/1) {
+  .aspect-box {
+    background: rgb(216, 228, 146);
+  }
+  .aspect-box::after {
+    content: 'Square aspect ratio (≈ 1:1)';
+  }
+}
+
+/* Tablet aspect ratio */
+@media (min-aspect-ratio: 1.3/1) and (max-aspect-ratio: 1.36/1) {
+  .aspect-box {
+    background: #45b7d1;
+  }
+  .aspect-box::after {
+    content: 'Tablet aspect ratio (≈ 4:3)';
+  }
+}
+
+/* Desktop aspect ratio */
+@media (min-aspect-ratio: 3/2) {
+  .aspect-box {
+    background: #96d474;
+  }
+  .aspect-box::after {
+    content: 'Desktop aspect ratio (> 1.5)';
+  }
+}
+
+/* ===========================================
+     Viewport Units Test
+     Including Modern Viewport Units
+     =========================================== */
+.viewport-units-test {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Traditional viewport units */
+.viewport-width {
+  width: 50vw;
+  height: 50px;
+  background: #7b68ee;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.viewport-height {
+  width: 100px;
+  height: 25vh;
+  background: #9370db;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Add back vmin/vmax styling */
+.viewport-min {
+  width: 50vmin;
+  height: 50px;
+  background: #8a2be2;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.viewport-min::after {
+  content: '50% of smallest viewport dimension';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.viewport-max {
+  width: 50vmax;
+  height: 50px;
+  background: #4b0082;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.viewport-max::after {
+  content: '50% of largest viewport dimension';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Modern viewport units with clear indicators */
+.modern-viewport-units {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border: 2px solid #333;
+}
+
+.modern-viewport-units h3::after {
+  content: ' (should adjust based on viewport changes)';
+  font-size: 0.8em;
+  color: #666;
+}
+
+.unit-test-item {
+  margin: 10px 0;
+  padding: 15px;
+  background: #ddd;
+  border-radius: 4px;
+  position: relative;
+}
+
+.unit-test-item:nth-child(1) {
+  width: 50svw; /* Small viewport units */
+  height: 50svh;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+}
+
+.unit-test-item:nth-child(1)::after {
+  content: 'Small viewport units (50svw × 50svh)';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.unit-test-item:nth-child(2) {
+  width: 50lvw; /* Large viewport units */
+  height: 50lvh;
+  background: linear-gradient(135deg, #45b7d1 0%, #4ecdc4 100%);
+}
+
+.unit-test-item:nth-child(2)::after {
+  content: 'Large viewport units (50lvw × 50lvh)';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.unit-test-item:nth-child(3) {
+  width: 50dvw; /* Dynamic viewport units */
+  height: 50dvh;
+  background: linear-gradient(135deg, #96d474 0%, #6ece6e 100%);
+}
+
+.unit-test-item:nth-child(3)::after {
+  content: 'Dynamic viewport units (50dvw × 50dvh)';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ===========================================
+     Typography Test with Modern Features
+     =========================================== */
+.typography-test {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.fluid-text {
+  font-size: clamp(1rem, 1rem + 2vw, 3rem);
+  margin-bottom: 1.5rem;
+  background: #ffb7b2;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.calc-text {
+  font-size: calc(16px + (24 - 16) * ((100vw - 300px) / (1600 - 300)));
+  margin-bottom: 1.5rem;
+  background: #b5ead7;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.viewport-text {
+  font-size: 5vw;
+  margin-bottom: 1.5rem;
+  background: #c7ceea;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* ===========================================
+Logical Properties Test
+Tests if logical properties correctly convert in container queries
+=========================================== */
+.logical-test {
+  /* Base styles */
+  margin-inline-start: 2rem; /* Space at text-start side */
+  padding-block-start: 2rem; /* Space at top */
+  border-inline-start: 4px solid #ff6b6b; /* Red border at text-start */
+  border-block-start: 4px solid #4ecdc4; /* Teal border at top */
+  background: #f8f9fa;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Labels to show current values */
+.logical-test::before {
+  content: 'margin-inline-start: 2rem';
+  position: absolute;
+  left: -2rem; /* Positions label in the margin space */
+  top: 0;
+  font-size: 0.8rem;
+  color: #ff6b6b;
+  white-space: nowrap;
+}
+
+.logical-test::after {
+  content: 'padding-block-start: 2rem';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.8rem;
+  color: #4ecdc4;
+}
+
+/* Test viewport unit conversion */
+@media (max-width: 768px) {
+  .logical-test {
+    margin-inline-start: 5vw; /* Should convert to container units */
+    padding-block-start: 5vh; /* Should convert to container units */
+    border-inline-start-width: 2px;
+    border-block-start-width: 2px;
+  }
+
+  .logical-test::before {
+    content: 'margin-inline-start: 5vw → 5cqw';
+    color: #ff6b6b;
+  }
+
+  .logical-test::after {
+    content: 'padding-block-start: 5vh → 5cqh';
+    color: #4ecdc4;
+  }
+}
+
+/* Test shorthand properties */
+@media (min-width: 1024px) {
+  .logical-test {
+    margin-inline: 3rem; /* Shorthand logical property */
+    padding-block: 3rem; /* Shorthand logical property */
+    border-inline-start-width: 6px;
+    border-block-start-width: 6px;
+  }
+
+  .logical-test::before {
+    content: 'margin-inline: 3rem';
+    color: #ff6b6b;
+  }
+
+  .logical-test::after {
+    content: 'padding-block: 3rem';
+    color: #4ecdc4;
+  }
+}
+
+/* Test RTL support */
+.logical-test[dir='rtl'] {
+  background: #f0f0f0; /* Slightly darker to show RTL mode */
+}
+
+.logical-test[dir='rtl']::before {
+  right: -2rem; /* Switch to right side in RTL */
+  left: auto;
+}
+
+/* ===========================================
+Range Query Test
+=========================================== */
+.range-test {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 4px solid #333;
+  transition: all 0.3s ease;
+  background: #ffe4e1;
+}
+
+.range-test::after {
+  content: 'Outside range (> 1024px or < 240px)';
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ff4136;
+}
+
+@media (240px <= width <= 1024px) {
+  .range-test {
+    background: #e8f5e9;
+  }
+  .range-test::after {
+    content: 'Inside range (240px - 1024px)! ✓';
+    color: #2ecc40;
+  }
+}
+
+/* ===========================================
+     Orientation Test
+     =========================================== */
+.orientation-box {
+  width: 300px;
+  height: 200px;
+  margin: 50px auto;
+  position: relative;
+  background-color: lightgray;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+}
+
+@media (orientation: landscape) {
+  .orientation-box {
+    background-color: lightblue;
+  }
+  .orientation-box::after {
+    content: 'orientation: landscape';
+  }
+}
+
+@media (orientation: portrait) {
+  .orientation-box {
+    background-color: lightgreen;
+  }
+  .orientation-box::after {
+    content: 'orientation: portrait';
+  }
+}
+
+/* ===========================================
+     Combined Features Test
+     Tests interaction between multiple responsive features:
+     - Container-relative sizing with calc() and clamp()
+     - Fluid typography
+     - Gradient backgrounds
+     - Custom properties
+     =========================================== */
+.combined-test {
+  width: calc(100vw - 40px);
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: clamp(1rem, 2vw + 1rem, 3rem);
+  background: linear-gradient(45deg, #ff9a8b 0%, #ff6a88 55%, #ff99ac 100%);
+  border-radius: 8px;
+  position: relative;
+}
+
+.combined-test::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    #ffd700 0%,
+    #ffd700 var(--container-width-percent, 100%),
+    rgba(255, 255, 255, 0.3) var(--container-width-percent, 100%),
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  border-radius: 8px 8px 0 0;
+}

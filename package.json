@@ -41,7 +41,8 @@
   "dependencies": {
     "@apostrophecms/vite": "^1.0.0",
     "apostrophe": "^4.9.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "postcss-viewport-to-container-toggle": "github:apostrophecms/postcss-viewport-to-container-toggle#pro-6932-improve-translation"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
