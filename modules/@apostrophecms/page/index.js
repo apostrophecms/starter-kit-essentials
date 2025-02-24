@@ -3,6 +3,12 @@
 
 export default {
   options: {
+    cache: {
+      page: {
+        // In seconds (60 * 60 = 1 hour)
+        maxAge: 3600
+      }
+    },
     types: [
       {
         name: 'default-page',
