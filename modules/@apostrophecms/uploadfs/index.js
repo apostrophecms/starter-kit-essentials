@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   options: {
     uploadfs: {
       ...(process.env.CDN
@@ -11,4 +11,4 @@ module.exports = {
         : {})
     }
   }
-};
+}
