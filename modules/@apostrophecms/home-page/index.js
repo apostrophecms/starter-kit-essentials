@@ -40,7 +40,8 @@ export default {
               ]
             },
             '@apostrophecms/image': {},
-            '@apostrophecms/video': {}
+            '@apostrophecms/video': {},
+            '@apostrophecms/html': {}
           }
         }
       }
