@@ -18,7 +18,10 @@ export default {
                 'link',
                 '|',
                 'bulletList',
-                'orderedList'
+                'orderedList',
+                '|',
+                'table',
+                'image'
               ],
               styles: [
                 {
