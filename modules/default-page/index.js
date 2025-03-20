@@ -40,6 +40,7 @@ export default {
               ],
               insert: [
                 'table',
+                'importTable',
                 'image'
               ]
             },
