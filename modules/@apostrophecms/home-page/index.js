@@ -18,7 +18,10 @@ export default {
                 'link',
                 '|',
                 'bulletList',
-                'orderedList'
+                'orderedList',
+                '|',
+                'table',
+                'image'
               ],
               styles: [
                 {
@@ -36,6 +39,7 @@ export default {
               ],
               insert: [
                 'table',
+                'importTable',
                 'image'
               ]
             },
