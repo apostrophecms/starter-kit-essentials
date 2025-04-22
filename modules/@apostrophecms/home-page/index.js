@@ -19,9 +19,9 @@ export default {
                 '|',
                 'bulletList',
                 'orderedList',
-                // '|',
-                // 'table',
-                // 'image'
+                '|',
+                'table',
+                'image'
               ],
               styles: [
                 {

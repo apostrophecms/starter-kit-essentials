@@ -20,7 +20,7 @@ export default {
                 '|',
                 'bulletList',
                 'orderedList',
-                // '|',
+                '|',
                 'table',
                 'image',
               ],
