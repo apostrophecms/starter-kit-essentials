@@ -20,7 +20,7 @@ export default {
                 '|',
                 'bulletList',
                 'orderedList',
-                '|',
+                // '|',
                 'table',
                 'image',
               ],
@@ -38,11 +38,11 @@ export default {
                   label: 'Heading 4 (H4)'
                 }
               ],
-              insert: [
-                'table',
-                'importTable',
-                'image'
-              ]
+              // insert: [
+              //   'table',
+              //   'importTable',
+              //   'image'
+              // ]
             },
             '@apostrophecms/image': {},
             '@apostrophecms/video': {}
