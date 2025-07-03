@@ -3,6 +3,7 @@ import apostrophe from 'apostrophe';
 apostrophe({
   root: import.meta,
   shortName: 'a4-boilerplate',
+  baseUrl: 'https://b75daf165449.ngrok.app',
   modules: {
     // Apostrophe module configuration
     // *******************************
@@ -34,6 +35,7 @@ apostrophe({
     // use vite for asset bundling and hot module reloading
     '@apostrophecms/vite': {},
     // The project's first custom page type.
-    'default-page': {}
+    'default-page': {},
+    '@apostrophecms/passport-bridge': {}
   }
 });

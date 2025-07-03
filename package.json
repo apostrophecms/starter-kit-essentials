@@ -39,9 +39,11 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
+    "@apostrophecms/passport-bridge": "apostrophecms/passport-bridge#pro-8013",
     "@apostrophecms/vite": "^1.0.0",
     "apostrophe": "^4.9.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
