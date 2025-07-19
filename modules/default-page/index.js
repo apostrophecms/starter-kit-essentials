@@ -9,7 +9,12 @@ export default {
         type: 'area',
         options: {
           widgets: {
-            '@apostrophecms/rich-text': {}
+            '@apostrophecms/rich-text': {
+              toolbar: [ 'italic', 'bold' ]
+            },
+            '@apostrophecms/image': {
+              minSize: [ 1024, 1024 ]
+            }
           }
         }
       },
@@ -18,7 +23,9 @@ export default {
         options: {
           widgets: {
             '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
+            '@apostrophecms/image': {
+              minSize: [ 764, 764 ]
+            },
             '@apostrophecms/video': {}
           }
         }
