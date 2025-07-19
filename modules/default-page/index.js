@@ -5,6 +5,14 @@ export default {
   },
   fields: {
     add: {
+      preface: {
+        type: 'area',
+        options: {
+          widgets: {
+            '@apostrophecms/rich-text': {}
+          }
+        }
+      },
       main: {
         type: 'area',
         options: {

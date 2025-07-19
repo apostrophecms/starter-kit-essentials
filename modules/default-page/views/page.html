@@ -6,8 +6,12 @@
 {% extends "layout.html" %}
 
 {% block main %}
+  <h1>Preface Area</h1>
   <section class="bp-content">
-    <h1>{{ data.page.title }}</h1>
+    {% area data.page, 'preface' %}
+  </section>
+  <h1>Main Area</h1>
+  <section class="bp-content">
     {% area data.page, 'main' %}
   </section>
 {% endblock %}
