@@ -21,12 +21,24 @@ export default {
       main: {
         type: 'area',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {
-              minSize: [ 764, 764 ]
+          expanded: true,
+          groups: {
+            basic: {
+              label: 'Basic',
+              widgets: {
+                '@apostrophecms/rich-text': {}
+              },
+              columns: 2
             },
-            '@apostrophecms/video': {}
+            media: {
+              label: 'Media',
+              widgets: {
+                '@apostrophecms/image': {
+                  minSize: [ 764, 764 ]
+                },
+                '@apostrophecms/video': {}
+              }
+            }
           }
         }
       }
