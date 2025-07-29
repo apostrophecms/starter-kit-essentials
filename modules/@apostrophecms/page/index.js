@@ -3,6 +3,7 @@
 
 export default {
   options: {
+    guestApiAccess: true,
     types: [
       {
         name: 'default-page',
