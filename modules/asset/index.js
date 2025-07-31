@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   handlers(self) {
     return {
       '@apostrophecms/page:beforeSend': {
