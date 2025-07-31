@@ -34,6 +34,10 @@ apostrophe({
     // use vite for asset bundling and hot module reloading
     '@apostrophecms/vite': {},
     // The project's first custom page type.
-    'default-page': {}
+    'default-page': {},
+    // Reusable content
+    'snippet': {},
+    // Widget to display reusable content
+    'snippet-widget': {}
   }
 });
