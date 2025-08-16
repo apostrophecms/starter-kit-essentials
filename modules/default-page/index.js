@@ -9,9 +9,14 @@ export default {
         type: 'area',
         options: {
           widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {}
+            '@apostrophecms/layout': {
+              columns: 12,
+              gap: '0 32px',
+              minSpan: 2
+            }
+            // '@apostrophecms/rich-text': {},
+            // '@apostrophecms/image': {},
+            // '@apostrophecms/video': {}
           }
         }
       }

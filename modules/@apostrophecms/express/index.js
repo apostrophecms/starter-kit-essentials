@@ -3,6 +3,11 @@ export default {
     session: {
       // If this still says `undefined`, set a real secret!
       secret: undefined
+    },
+    apiKeys: {
+      dev: {
+        role: 'admin'
+      }
     }
   }
 };
