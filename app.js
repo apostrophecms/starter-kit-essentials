@@ -3,6 +3,7 @@ import apostrophe from 'apostrophe';
 apostrophe({
   root: import.meta,
   shortName: 'a4-boilerplate',
+  bundles: [ '@apostrophecms-pro/section-template-library' ],
   modules: {
     // Apostrophe module configuration
     // *******************************
@@ -37,5 +38,8 @@ apostrophe({
     'default-page': {},
     '@apostrophecms-pro/section-template-library': {},
     '@apostrophecms-pro/section-template-tag': {},
+    '@apostrophecms-pro/section-template-widget-type': {},
+    '@apostrophecms/ai-helper': {
+    }
   }
 });
