@@ -15,8 +15,7 @@ export default {
         // The "special" options for the area will be auto applied.
         options: {
           widgets: {
-            'another-column': {},
-            '@apostrophecms/layout-meta': {}
+            'another-column': {}
           }
         }
       }
