@@ -1,17 +1,22 @@
+console.log('I AM HERE');
+
 export default {
   fields: {
     add: {
-      columns: {
+      content: {
         type: 'area',
-        // The "special" options for the area will be auto applied.
         options: {
           widgets: {
             '@apostrophecms/rich-text': {},
             '@apostrophecms/image': {},
-            '@apostrophecms/video': {}
+            '@apostrophecms/video': {},
+            'nested-layout': {}
           }
         }
       }
     }
+  },
+  init(self) {
+    console.log(JSON.stringify(self.schema, null, 2));
   }
 };

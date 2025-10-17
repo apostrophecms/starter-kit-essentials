@@ -3,8 +3,8 @@ export default {
   // for custom layout with custom columns.
   extend: '@apostrophecms/layout-widget',
   options: {
-    label: 'Another Layout',
-    columns: 9,
+    label: 'Nested Layout',
+    columns: 6,
     minSpan: 2,
     defaultSpan: 3
   },
