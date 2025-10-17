@@ -36,6 +36,8 @@ apostrophe({
     // The project's first custom page type.
     'default-page': {},
     'another-layout-widget': {},
-    'another-column-widget': {}
+    'another-column-widget': {},
+    'nested-layout-widget': {},
+    'nested-column-widget': {}
   }
 });
