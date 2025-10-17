@@ -1,5 +1,3 @@
-console.log('I AM HERE');
-
 export default {
   fields: {
     add: {
@@ -15,8 +13,5 @@ export default {
         }
       }
     }
-  },
-  init(self) {
-    console.log(JSON.stringify(self.schema, null, 2));
   }
 };
