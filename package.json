@@ -40,7 +40,7 @@
   "license": "MIT",
   "dependencies": {
     "@apostrophecms/vite": "^1.0.0",
-    "apostrophe": "^4.9.0",
+    "apostrophe": "github:apostrophecms/apostrophe#feature-layout-widget",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {

@@ -9,9 +9,14 @@ export default {
         type: 'area',
         options: {
           widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {}
+            // A standard layout widget
+            '@apostrophecms/layout': {
+              gap: '2rem'
+            },
+            // A custom layout widget, with custom options and columns
+            'another-layout': {
+              gap: '1rem'
+            }
           }
         }
       }
