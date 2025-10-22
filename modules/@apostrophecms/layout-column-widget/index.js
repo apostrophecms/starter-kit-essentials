@@ -6,9 +6,11 @@ export default {
       content: {
         type: 'area',
         options: {
-          '@apostrophecms/rich-text': {},
-          '@apostrophecms/image': {},
-          '@apostrophecms/video': {}
+          widgets: {
+            '@apostrophecms/rich-text': {},
+            '@apostrophecms/image': {},
+            '@apostrophecms/video': {}
+          }
         }
       }
     }
