@@ -9,6 +9,10 @@ export default {
         label: 'Default'
       },
       {
+        name: '@apostrophecms/blog-page',
+        label: 'Blog'
+      },
+      {
         name: '@apostrophecms/home-page',
         label: 'Home'
       }

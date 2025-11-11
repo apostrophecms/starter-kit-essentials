@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  <h1>{{ data.piece.title }}</h1>
+  <p>
+    {{ data.piece.publishedAt | date('MMMM D, YYYY') }}
+  </p>
+  {% area data.piece, 'main' %}
+{% endblock %}

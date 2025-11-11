@@ -1,0 +1,16 @@
+{% fragment render(data) %}
+  {% for filter in data.filters %}
+    <h3>{{ filter.label }}</h3>
+    <ul>
+      {% for choice in filter.choices %}
+        <li>
+          <a
+            style="{{ 'font-style: italic' if choice.active }}"
+            href="{{ choice._url }}"
+          >{{ __t(choice.label) }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+
+{% endfragment %}
