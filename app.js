@@ -3,6 +3,7 @@ import apostrophe from 'apostrophe';
 apostrophe({
   root: import.meta,
   shortName: 'a4-boilerplate',
+  baseUrl: 'http://localhost:3000',
   modules: {
     // Apostrophe module configuration
     // *******************************
