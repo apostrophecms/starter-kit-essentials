@@ -7,8 +7,8 @@
   "scripts": {
     "start": "node app",
     "dev": "nodemon",
-    "build": "NODE_ENV=production node app @apostrophecms/asset:build",
-    "serve": "NODE_ENV=production node app",
+    "build": "cross-env NODE_ENV=production node app @apostrophecms/asset:build",
+    "serve": "cross-env NODE_ENV=production node app",
     "release": "npm install && npm run build && node app @apostrophecms/migration:migrate"
   },
   "nodemonConfig": {
@@ -39,8 +39,9 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "@apostrophecms/vite": "^1.0.0",
+    "@apostrophecms/vite": "apostrophecms/vite#fix-windows-1",
     "apostrophe": "^4.9.0",
+    "cross-env": "^10.1.0",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
