@@ -39,8 +39,8 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "@apostrophecms/vite": "^1.0.0",
-    "apostrophe": "^4.9.0",
+    "@apostrophecms/vite": "apostrophecms/vite",
+    "apostrophe": "apostrophecms/apostrophe#windows-fix-2b",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
