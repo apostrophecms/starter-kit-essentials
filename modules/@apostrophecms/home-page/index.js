@@ -8,6 +8,12 @@ export default {
         type: 'area',
         options: {
           widgets: {
+            '@apostrophecms/layout': {
+              columns: 6,
+              defaultSpan: 3,
+              minSpan: 1,
+              gap: '1rem'
+            },
             '@apostrophecms/rich-text': {},
             '@apostrophecms/image': {},
             '@apostrophecms/video': {}
