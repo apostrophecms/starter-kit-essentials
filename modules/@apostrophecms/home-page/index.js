@@ -8,6 +8,7 @@ export default {
         type: 'area',
         options: {
           widgets: {
+            my: {},
             '@apostrophecms/rich-text': {},
             '@apostrophecms/image': {},
             '@apostrophecms/video': {}

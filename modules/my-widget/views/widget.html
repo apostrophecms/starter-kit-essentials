@@ -1,0 +1,14 @@
+{% set image = apos.image.first(data.widget.image) %}
+
+{% if image %}
+  {# {{ apos.log('image data', image) }} #}
+  {% set imageUrl = apos.attachment.url(image, {size: 'one-sixth' }) %}
+  {% set altText = image.alt %}
+{% else %}
+  {% set imageUrl = 'https://picsum.photos/200' %}
+{% endif %}
+
+<section data-my-widget>
+  <h2>{{ data.widget.title }}</h2>
+  <img src="{{ imageUrl }}" alt="{{ altText }}">
+</section>
