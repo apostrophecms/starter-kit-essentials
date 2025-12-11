@@ -39,7 +39,6 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "@apostrophecms/vite": "^1.0.0",
     "apostrophe": "^4.23.0",
     "cross-env": "^10.1.0",
     "normalize.css": "^8.0.1"
