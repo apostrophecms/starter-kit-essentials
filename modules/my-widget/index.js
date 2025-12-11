@@ -13,6 +13,10 @@ export default {
         backgroundColor: {
           type: 'color',
           property: 'background-color'
+        },
+        isBold: {
+          type: 'boolean',
+          class: 'bold-text'
         }
       }
     };
