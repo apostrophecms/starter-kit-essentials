@@ -4,6 +4,8 @@ export default {
     // Change to `apos` for admin UI HMR
     // `public` is the default and provides HMR for project UI code
     hmr: 'public',
-    refreshOnRestart: true
+    refreshOnRestart: true,
+    productionSourceMaps: true,
+    // productionSourceMapDir: '/tmp/sourcemaps'
   }
 };
