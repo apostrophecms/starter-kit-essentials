@@ -11,6 +11,14 @@ export default {
         selector: 'body',
         property: 'color'
       },
+      backgroundColor: {
+        type: 'color',
+        label: 'Background Color',
+        help: 'Choose a background color',
+        selector: 'body',
+        property: 'background-color',
+        mediaQuery: '(min-width: 768px)'
+      },
       textDecoration: {
         type: 'select',
         label: 'Text Decoration',
@@ -42,7 +50,7 @@ export default {
     group: {
       colors: {
         label: 'Colors',
-        fields: [ 'textColor' ]
+        fields: [ 'textColor', 'backgroundColor' ]
       },
       typography: {
         label: 'Typography',
