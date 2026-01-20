@@ -4,6 +4,10 @@ export default {
   },
   fields: {
     add: {
+      test: {
+        type: 'test',
+        label: 'Test'
+      },
       main: {
         type: 'area',
         options: {
@@ -20,9 +24,19 @@ export default {
         label: 'Basics',
         fields: [
           'title',
-          'main'
+          'main',
+          'test'
         ]
       }
     }
+  },
+  init(self) {
+    self.apos.schema.addFieldType({
+      name: 'test',
+      convert(req, field, data, object) {
+        object[field.name] = self.apos.launder.string(data[field.name]);
+      },
+      vueComponent: 'TestField'
+    });
   }
 };
