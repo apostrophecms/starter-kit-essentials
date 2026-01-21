@@ -1,28 +1,16 @@
 export default {
-  options: {
-    label: 'Home Page'
-  },
+  extend: '@apostrophecms/layout-column-widget',
   fields: {
     add: {
-      main: {
+      content: {
         type: 'area',
         options: {
           widgets: {
-            '@apostrophecms/layout': {},
             '@apostrophecms/rich-text': {},
             '@apostrophecms/image': {},
             '@apostrophecms/video': {}
           }
         }
-      }
-    },
-    group: {
-      basics: {
-        label: 'Basics',
-        fields: [
-          'title',
-          'main'
-        ]
       }
     }
   }
