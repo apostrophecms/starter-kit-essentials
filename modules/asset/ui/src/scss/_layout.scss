@@ -1,3 +1,7 @@
+:root {
+  --content-max-width: 1200px;
+}
+
 // Use flex to keep the footer at the bottom.
 body,
 [data-apos-refreshable],
@@ -22,7 +26,7 @@ body {
 main,
 .bp-footer {
   width: 100%;
-  max-width: 800px;
+  max-width: var(--content-max-width);
   margin-left: auto;
   margin-right: auto;
 }
@@ -37,7 +41,7 @@ main,
 }
 
 .bp-footer {
-  padding: 40px 0; 
+  padding: 40px 0;
 }
 
 .bp-footer__links {
@@ -67,7 +71,6 @@ main,
 }
 
 .bp-content {
-  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }

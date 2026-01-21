@@ -14,6 +14,8 @@ apostrophe({
     // have a minimal configuration here to turn them on: `moduleName: {}`
     // ***********************************************************************
     // `className` options set custom CSS classes for Apostrophe core widgets.
+    // NOTE: Changing this className will break global style selectors
+    // configured in modules/@apostrophecms/styles/index.js
     '@apostrophecms/rich-text-widget': {
       options: {
         className: 'bp-rich-text'
