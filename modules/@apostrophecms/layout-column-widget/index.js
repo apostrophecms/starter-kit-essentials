@@ -1,4 +1,9 @@
 export default {
+  styles: {
+    add: {
+      background: 'background'
+    }
+  },
   fields: {
     add: {
       content: {
