@@ -19,7 +19,7 @@
   position: absolute;
   inset: calc(var(--preset-bg-blur) * -2);
   z-index: -1;
-  background: var(--preset-bg-image-set, var(--preset-bg-image)) center / cover no-repeat;
+  background: var(--preset-bg-image) center / cover no-repeat;
   filter: blur(var(--preset-bg-blur));
   clip-path: inset(calc(var(--preset-bg-blur) * 2 - 1px));
 }
