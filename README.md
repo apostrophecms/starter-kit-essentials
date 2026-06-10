@@ -1,37 +1,190 @@
-# ApostropheCMS essentials starter kit
+# ApostropheCMS Essentials Starter Kit
 
-## Getting started
+The official minimal starting point for ApostropheCMS 4 projects. Ships with a home page,
+a default page type, a basic layout, and the Vite asset pipeline — enough structure to build
+on without opinions you'll need to undo.
 
-This Starter Kit, also known as a boilerplate project, serves as a template for initiating new projects and is intended for use in two main ways:
+Use it as-is for simple sites, or fork and extend it as your own organizational starter.
 
-1. **Using Our CLI Tool**: Run our [CLI tool](https://github.com/apostrophecms/cli) to clone this template locally, install its dependencies, and set up an initial admin user. You accomplish this using:
-   
-   `apos create <my-project-name>`
-  
-2. **Manual Setup**: Manually `git clone` this repository and install its dependencies using `npm install`. Add an initial admin user with `node app @apostrophecms/user:add admin admin`.
+---
 
-For those who need to create multiple projects with additional base modules, consider [forking this repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) into your organizational or personal GitHub account. Customize it to fit your needs. To use your customized template, run the following CLI command:
+## Prerequisites
 
-  `apos create <project-name> --starter=<repo-name>`
+| Requirement | Version | Link |
+|-------------|---------|------|
+| Node.js | 22+ LTS | https://nodejs.org |
+| Database | — | MongoDB 8+, SQLite (no server), or PostgreSQL 14+ |
 
-Here, `<repo-name>` should be the URL of your forked repository, excluding the `https://github.com/` part.
+> **Quickest local setup:** use SQLite — no database server required.
+> Set `APOS_DB_URI=sqlite://./data/my-project.db` in `.env`.
 
-**Note: This template is NOT designed to be installed into an existing project.**
+---
 
-## Running the project
+## Quick Start
 
-Run `npm run dev` to build the Apostrophe UI and start the site up. Remember, this is during alpha development, so we're all in "dev mode." The `dev` script will watch for saves in client-side CSS and Javascript and trigger a build and page refresh if they are detected. It will also restart the app when server-side code is saved.
+```sh
+git clone https://github.com/apostrophecms/starter-kit-essentials.git my-project
+cd my-project
+cp .env.example .env
+# Edit .env — set APOS_DB_URI at minimum (see Environment Variables below)
+npm install
+node app @apostrophecms/user:add admin admin
+npm run dev
+```
 
-## Making it your own
+Open **http://localhost:3000** and log in at `/login` with username `admin` and the password
+you entered above.
 
-This boilerplate is designed so you can install and start running it right away. If you are starting a project that will go into production one day, there are a few things you should be sure to check:
+### Using the CLI instead
 
-- [ ] **Update the shortname.** You don't need to perform this step if you created your project using the CLI tool. The `shortname` option in `app.js` is used for the database name (unless another is given in the `@apostrophecms/db` module). You should change this to an appropriate project name before you start adding any users or content you would like to keep.
-- [ ] **Update the Express.js session secret.** The secret is set to `undefined` initially in the `modules/@apostrophecms/express/index.js` file. You should update this to a unique string.
-- [ ] **Decide if you want hot reloading on.** This boilerplate uses nodemon to restart the app when files are changed. In `modules/@apostrophecms/asset/index.js` there is an option enabled to refresh the browser on restart. If you like this, do nothing. If you don't, remove the option or set it to `false`. The option has no effect when the app is in production.
-- [ ] **Update the `className` options in `app.js`.** This option is set for core widget types to provide CSS styling hooks. It is namespaced with `bp-` for "boilerplate." You will likely want to update that to match your general CSS class naming practices.
+```sh
+npm create apostrophe@latest  # follow the prompts
+```
 
-## You really want the docs
+---
 
-Right now, [all the juicy info is in the ApostropheCMS docs](https://docs.apostrophecms.org), so head over there and start reading! This boilerplate project is a fun introduction to the UI, but you'll want to know more to really try it out.
+## Architecture Overview
 
+```
+Browser
+  │  HTTP request
+  ▼
+Express  (app.js)
+  │  Route matched by @apostrophecms/page
+  ▼
+Page module  modules/<page-type>/index.js
+  │  Relationship fields joined (_field arrays populated)
+  │  data.global, data.home, data.user attached
+  ▼
+Nunjucks render
+  views/layout.html                          ← site chrome
+    └─ modules/<page-type>/views/page.html  ← page content
+         └─ {% area %} tags
+              └─ modules/<widget-name>/views/widget.html
+  ▼
+HTML response
+```
+
+**Key directories**
+
+| Path | Purpose |
+|------|---------|
+| `app.js` | Entry point; all module registration |
+| `modules/` | One subdirectory per module |
+| `lib/` | Shared field config (import, don't duplicate) |
+| `views/` | Site-wide Nunjucks templates |
+| `modules/asset/ui/src/` | Client-side JS and SCSS |
+
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for conventions, template inheritance details,
+and the full `data.*` reference.
+
+---
+
+## Adding a Widget
+
+**1.** Create `modules/<widget-name>/index.js`:
+
+```js
+export default {
+  extend: '@apostrophecms/widget-type',
+  options: { label: 'My Widget' },
+  fields: {
+    add: {
+      heading: { type: 'string', label: 'Heading' }
+    }
+  }
+};
+```
+
+**2.** Create `modules/<widget-name>/views/widget.html`:
+
+```html
+<div>
+  <h2>{{ data.widget.heading }}</h2>
+</div>
+```
+
+**3.** Register in `app.js` under `modules`: `'<widget-name>': {}`
+
+**4.** Add `'<widget-name>': {}` to an area's `widgets` config, or to `lib/area.js`.
+
+---
+
+## Adding a Page Type
+
+**1.** Create `modules/<page-name>/index.js`:
+
+```js
+import areaConfig from '../../lib/area.js';
+
+export default {
+  extend: '@apostrophecms/page-type',
+  options: { label: 'My Page' },
+  fields: {
+    add: {
+      main: { type: 'area', options: { widgets: areaConfig } }
+    }
+  }
+};
+```
+
+**2.** Create `modules/<page-name>/views/page.html`:
+
+```html
+{% extends "layout.html" %}
+{% block main %}
+  <h1>{{ data.page.title }}</h1>
+  {% area data.page, 'main' %}
+{% endblock %}
+```
+
+**3.** Register in `app.js` under `modules`: `'<page-name>': {}`
+
+**4.** Add to `modules/@apostrophecms/page/index.js` → `options.types`:
+
+```js
+{ name: '<page-name>', label: 'My Page' }
+```
+
+---
+
+## Environment Variables
+
+Copy `.env.example` to `.env`. Never commit `.env`.
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `APOS_DB_URI` | **Yes** | Database connection string (see formats below) |
+| `APOS_DEV` | No | Set to `1` to force admin UI rebuild on every restart |
+
+**`APOS_DB_URI` formats:**
+
+```
+# MongoDB
+mongodb://localhost:27017/my-project
+
+# SQLite (no server needed — good for local dev)
+sqlite://./data/my-project.db
+
+# PostgreSQL (use underscores, not hyphens, in database name)
+postgres://user:password@localhost:5432/my_project
+```
+
+---
+
+## Before Going to Production
+
+- [ ] Update `shortName` in `app.js` — used as the database name
+- [ ] Set a unique session `secret` in `modules/@apostrophecms/express/index.js`
+- [ ] Run `npm run build` to compile production assets
+- [ ] Start with `npm run serve` (or `npm run release` to install, build, and migrate in one step)
+
+---
+
+## Resources
+
+- [ApostropheCMS Documentation](https://docs.apostrophecms.org)
+- [ApostropheCMS Discord](https://chat.apostrophecms.com)
+- [GitHub Discussions](https://github.com/apostrophecms/apostrophe/discussions)
+- [CLI Tool](https://github.com/apostrophecms/create-apostrophe) — `npm create apostrophe@latest`
+- [ARCHITECTURE.md](./ARCHITECTURE.md) — conventions, template reference, data sources
