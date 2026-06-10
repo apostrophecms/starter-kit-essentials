@@ -39,7 +39,6 @@ you entered above.
 
 ```sh
 npm create apostrophe@latest  # follow the prompts
-npm run dev
 ```
 
 ---
