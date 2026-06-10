@@ -3,7 +3,7 @@ export default {
   options: {
     // Change to `apos` for admin UI HMR
     // `public` is the default and provides HMR for project UI code
-    hmr: 'public',
+    hmr: 'apos',
     refreshOnRestart: true
   }
 };
