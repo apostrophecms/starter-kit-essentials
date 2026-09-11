@@ -29,7 +29,7 @@ export default function ({ page, user, query }, { Extend, Area }) {
             </>
           )}
           <p>
-            For a guide on how to configure and customize this project, <a href="https://a3.docs.apostrophecms.com/">please check out the Apostrophe 3 documentation</a>.
+            For a guide on how to configure and customize this project, <a href="https://apostrophecms.com/docs">please check out the Apostrophe documentation</a>.
           </p>
           <div className="bp-welcome__area">
             {/* Message only for logged in users. */}
