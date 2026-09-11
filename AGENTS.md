@@ -1,6 +1,8 @@
 # AGENTS.md — starter-kit-essentials
 
-Machine-readable project brief for AI coding assistants. Facts and conventions only.
+Machine-readable project brief for AI coding assistants. Facts and conventions only. For anything
+not covered here — API details, options, edge cases — consult the docs:
+https://apostrophecms.com/docs/
 
 ---
 
@@ -58,10 +60,10 @@ export default function ({ page }, { Area }) {
 | `Component` | Invokes an async component. Replaces `{% component %}` |
 | `Template` | Renders another template, **include semantics** (props arrive as data). Replaces `{% include %}` |
 | `Extend` | Renders another template, **extends semantics** — props become `{% block %}` overrides against a `.html` target. Replaces `{% extends %}` |
-| `Widget` | Renders a single widget directly. Only for reimplementing `area.html` |
 | `__t` | Localization helper — same `req.t` as Nunjucks's `__t` global. Not on `data` or `helpers`. |
 
-Against a `.jsx` target, `Template` and `Extend` behave identically.
+`Widget` also exists, for the rare case of reimplementing `area.html` itself — see the
+[JSX templates guide](https://apostrophecms.com/docs/guide/jsx-templates.html) rather than reaching for it from this brief.
 
 ## Nunjucks → JSX Cheat Sheet
 
