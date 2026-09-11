@@ -65,19 +65,11 @@ export default function ({ page }, { Area }) {
 `Widget` also exists, for the rare case of reimplementing `area.html` itself — see the
 [JSX templates guide](https://apostrophecms.com/docs/guide/jsx-templates.html) rather than reaching for it from this brief.
 
-## Nunjucks → JSX Cheat Sheet
+## Nunjucks → JSX Gotchas
 
-| Nunjucks | JSX |
-|----------|-----|
-| `{{ data.page.title }}` | `{page.title}` |
-| `{% if data.user %}…{% endif %}` | `{user && …}` |
-| `{% for x in xs %}…{% endfor %}` | `{xs.map((x) => …)}` |
-| `{% area data.page, 'main' %}` | `<Area doc={page} name="main" />` |
-| `{% include "footer.html" %}` | `<Template name="footer" />` |
-| `{% extends "layout.html" %}` + `{% block main %}` | `<Extend templateName="layout" main={…} />` |
-| `{{ content \| safe }}` | `dangerouslySetInnerHTML={{ __html: content }}` |
-
-Notes:
+Full Nunjucks-to-JSX mapping in the
+[JSX templates guide](https://apostrophecms.com/docs/guide/jsx-templates.html). Things that
+guide won't warn you about:
 
 - No `key`/`ref` — there's no client reconciler. Don't add them, even inside `.map()`.
 - `style` accepts a **plain string**, unlike React (`` style={`background-image: url(${url})`} ``).
@@ -87,10 +79,9 @@ Notes:
 
 ## Adding a Widget
 
-1. Create `modules/<widget-name>/index.js` — extend `@apostrophecms/widget-type`
-2. Create `modules/<widget-name>/views/widget.jsx`
-3. Register in `app.js` under `modules`: `'<widget-name>': {}`
-4. Add to an area's `widgets` config (inline or via `lib/area.js`)
+Standard Apostrophe widget setup — see the
+[custom widgets guide](https://apostrophecms.com/docs/guide/custom-widgets.html). The one
+difference here: write the template as `.jsx`.
 
 ```jsx
 // modules/card-widget/views/widget.jsx
@@ -105,12 +96,10 @@ export default function ({ widget }, { Area }) {
 
 ## Adding a Page Type
 
-1. Create `modules/<page-name>/index.js` — extend `@apostrophecms/page-type`
-2. Create `modules/<page-name>/views/page.jsx`
-3. Register in `app.js` under `modules`: `'<page-name>': {}`
-4. Add to `modules/@apostrophecms/page/index.js` → `options.types` array
-
-Page templates extend the site layout by passing named slots as props:
+Standard Apostrophe page type setup — see the
+[pages and page types guide](https://apostrophecms.com/docs/guide/pages.html). Two differences
+here: write the template as `.jsx`, and it extends the site layout by passing named slots as
+props instead of using `{% block %}`:
 
 ```jsx
 // modules/default-page/views/page.jsx
