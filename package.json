@@ -18,7 +18,8 @@
       "./app.js",
       "./modules/**/*",
       "./lib/**/*.js",
-      "./views/**/*.html"
+      "./views/**/*.html",
+      "./views/**/*.jsx"
     ],
     "ignoreRoot": [
       ".git"
@@ -30,7 +31,7 @@
       "public/apos-frontend/*.js",
       "data/"
     ],
-    "ext": "json, js, cjs, html"
+    "ext": "json, js, cjs, jsx, html"
   },
   "repository": {
     "type": "git",
@@ -39,8 +40,8 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
-    "@apostrophecms/vite": "^1.0.0",
-    "apostrophe": "^4.23.0",
+    "@apostrophecms/vite": "^1.1.2",
+    "apostrophe": "^4.32.1",
     "cross-env": "^10.1.0",
     "dotenv": "^17.4.2",
     "normalize.css": "^8.0.1"
