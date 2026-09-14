@@ -6,3 +6,28 @@
 @import './scss/_layout';
 @import './scss/_welcome';
 @import './scss/_widgets';
+
+.has-bg-blur {
+  --preset-bg-image-layer: none;
+  --preset-bg-overlay-layer: none;
+  position: relative;
+  isolation: isolate;
+}
+
+.has-bg-blur::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--preset-bg-blur) * -2);
+  z-index: -1;
+  background: var(--preset-bg-image) center / cover no-repeat;
+  filter: blur(var(--preset-bg-blur));
+  clip-path: inset(calc(var(--preset-bg-blur) * 2 - 1px));
+}
+
+.has-bg-blur::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--preset-bg-overlay);
+}
