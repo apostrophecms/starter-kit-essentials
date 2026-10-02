@@ -13,9 +13,12 @@ export default function ({ page, user, query }, { Extend, Area }) {
           {/* Message only for logged out users. */}
           {!user && (
             <>
-              <h3 className="bp-welcome__help">First time spinning up the ApostropheCMS 3 demo?</h3>
+              <h3 className="bp-welcome__help">First time spinning up your ApostropheCMS project?</h3>
               <p>
-                Use the credentials created during setup with the CLI tool or create a new user with the CLI command:
+                <strong>Created this project with the Apostrophe CLI?</strong> Log in with the admin username and password you chose during setup. You don&apos;t need to create another user.
+              </p>
+              <p>
+                <strong>Cloned or forked from GitHub?</strong> You&apos;ll need to create an admin user first. Run this from your project folder:
               </p>
               <pre className="bp-welcome__code">
                 <span className="bp-welcome__code__context">Command Line</span>

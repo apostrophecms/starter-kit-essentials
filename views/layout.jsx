@@ -33,8 +33,8 @@ const footerLinks = [
     label: 'Discord'
   },
   {
-    url: 'https://twitter.com/apostrophecms',
-    label: 'Twitter'
+    url: 'https://x.com/apostrophecms',
+    label: 'X / Twitter'
   },
   {
     url: 'https://github.com/apostrophecms/apostrophe/discussions',
