@@ -45,11 +45,25 @@ values from `data.global`.
 
 ApostropheCMS discovers templates by **filename convention** — no registration required:
 
-- Widget template → `modules/<widget-name>/views/widget.html`
-- Page template → `modules/<page-type>/views/page.html`
-- Piece index/show → `modules/<piece-page>/views/index.html` and `show.html`
+- Widget template → `modules/<widget-name>/views/widget.jsx`
+- Page template → `modules/<page-type>/views/page.jsx`
+- Piece index/show → `modules/<piece-page>/views/index.jsx` and `show.jsx`
 
-Naming the file correctly is sufficient; Apostrophe picks it up automatically.
+Naming the file correctly is sufficient; Apostrophe picks it up automatically. Lookup tries
+`.jsx`, `.njk`, then `.html` in each directory, nearest module first — so a project `page.jsx`
+overrides a core `page.html`.
+
+## JSX Templates
+
+Templates are written in JSX and rendered server-side by Apostrophe core — no React, no virtual
+DOM, no client runtime. Each template default-exports a function taking `(data, helpers)`:
+destructure `data` for `page`, `widget`, etc., and `helpers` for `Area`, `Extend`, `Template`,
+`Component`, `apos` and `__t`.
+
+Nunjucks remains supported, with one hard rule: **a `.html` template cannot extend, include or
+import a `.jsx` template** (the reverse works). Core's `notFound.html` extends `layout.html`, so
+`modules/@apostrophecms/page/views/notFound.jsx` shadows it — don't delete it. See
+[AGENTS.md](./AGENTS.md) for the full helper reference and Nunjucks → JSX gotchas.
 
 ## Template Inheritance Chain
 
@@ -58,14 +72,22 @@ Four levels, outermost first:
 | Level | File | Edit? |
 |-------|------|-------|
 | `outerLayoutBase` | ApostropheCMS core | Never |
-| `outerLayout` | `modules/@apostrophecms/template/views/outerLayout.html` | For `<head>`, meta tags, markup outside `<body>` |
-| `layout` | `views/layout.html` | **Yes — site-wide chrome (header, nav, footer)** |
-| page template | `modules/<page-type>/views/page.html` | **Yes — page-specific content** |
+| `outerLayout` | Core `@apostrophecms/template/views/outerLayout.html` (Nunjucks); shadow in `modules/@apostrophecms/template/views/` if needed | For `<head>`, meta tags, markup outside `<body>` |
+| `layout` | `views/layout.jsx` | **Yes — site-wide chrome (header, nav, footer)** |
+| page template | `modules/<page-type>/views/page.jsx` | **Yes — page-specific content** |
 
-`views/layout.html` opens with `{% extends data.outerLayout %}`, which resolves to the correct
-outer template automatically (handles both full-page and AJAX requests).
+`views/layout.jsx` renders `<Extend templateName={data.outerLayout} … />`, which resolves to the
+correct outer template automatically (handles both full-page and AJAX requests). Each prop passed
+to `<Extend>` becomes a `{% block %}` override on that Nunjucks template.
+
+JSX has no named blocks. A page template passes its content to the layout as props instead —
+`<Extend templateName="layout.jsx" main={…} />` — and the layout reads them from `data`
+(`data.main`, `data.title`).
 
 ## `data.*` Sources in Templates
+
+These arrive on a template's first argument. Destructure what you need — `{ page }`, not
+`data.page`.
 
 | Variable | Contents |
 |----------|----------|

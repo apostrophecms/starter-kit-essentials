@@ -4,6 +4,11 @@ The official minimal starting point for ApostropheCMS 4 projects. Ships with a h
 a default page type, a basic layout, and the Vite asset pipeline — enough structure to build
 on without opinions you'll need to undo.
 
+Templates are written in **JSX**, rendered server-side by Apostrophe core — no React, no
+virtual DOM, no client runtime. Nunjucks still works too, and you can mix the two with one
+limit: a Nunjucks (`.html`) template can't extend or include a JSX template. See
+[AGENTS.md](./AGENTS.md#jsxnunjucks-interop) for details.
+
 Use it as-is for simple sites, or fork and extend it as your own organizational starter.
 
 ---
@@ -12,11 +17,13 @@ Use it as-is for simple sites, or fork and extend it as your own organizational 
 
 | Requirement | Version | Link |
 |-------------|---------|------|
-| Node.js | 22+ LTS | https://nodejs.org |
+| Node.js | 24+ LTS | https://nodejs.org |
 | Database | — | MongoDB 8+, SQLite (no server), or PostgreSQL 14+ |
 
-> **Quickest local setup:** use SQLite — no database server required.
-> Set `APOS_DB_URI=sqlite://./data/my-project.db` in `.env`.
+> **No configuration needed for local MongoDB:** by default Apostrophe connects to
+> `mongodb://localhost:27017/<shortName>` (`shortName` is set in `app.js`).
+>
+> **No database server?** Use SQLite: set `APOS_DB_URI=sqlite://./data/my-project.db` in `.env`.
 
 ---
 
@@ -25,8 +32,6 @@ Use it as-is for simple sites, or fork and extend it as your own organizational 
 ```sh
 git clone https://github.com/apostrophecms/starter-kit-essentials.git my-project
 cd my-project
-cp .env.example .env
-# Edit .env — set APOS_DB_URI at minimum (see Environment Variables below)
 npm install
 node app @apostrophecms/user:add admin admin
 npm run dev
@@ -34,6 +39,10 @@ npm run dev
 
 Open **http://localhost:3000** and log in at `/login` with username `admin` and the password
 you entered above.
+
+This uses local MongoDB. To use SQLite, PostgreSQL or a remote database, run
+`cp .env.example .env` first and set the variables described in
+[Environment Variables](#environment-variables).
 
 ### Using the CLI instead
 
@@ -56,11 +65,11 @@ Page module  modules/<page-type>/index.js
   │  Relationship fields joined (_field arrays populated)
   │  data.global, data.home, data.user attached
   ▼
-Nunjucks render
-  views/layout.html                          ← site chrome
-    └─ modules/<page-type>/views/page.html  ← page content
-         └─ {% area %} tags
-              └─ modules/<widget-name>/views/widget.html
+JSX render (server-side)
+  views/layout.jsx                          ← site chrome
+    └─ modules/<page-type>/views/page.jsx  ← page content
+         └─ <Area> components
+              └─ modules/<widget-name>/views/widget.jsx
   ▼
 HTML response
 ```
@@ -72,7 +81,7 @@ HTML response
 | `app.js` | Entry point; all module registration |
 | `modules/` | One subdirectory per module |
 | `lib/` | Shared field config (import, don't duplicate) |
-| `views/` | Site-wide Nunjucks templates |
+| `views/` | Site-wide JSX templates (`layout.jsx`) |
 | `modules/asset/ui/src/` | Client-side JS and SCSS |
 
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for conventions, template inheritance details,
@@ -96,12 +105,16 @@ export default {
 };
 ```
 
-**2.** Create `modules/<widget-name>/views/widget.html`:
+**2.** Create `modules/<widget-name>/views/widget.jsx`:
 
-```html
-<div>
-  <h2>{{ data.widget.heading }}</h2>
-</div>
+```jsx
+export default function ({ widget }) {
+  return (
+    <div>
+      <h2>{widget.heading}</h2>
+    </div>
+  );
+}
 ```
 
 **3.** Register in `app.js` under `modules`: `'<widget-name>': {}`
@@ -128,14 +141,23 @@ export default {
 };
 ```
 
-**2.** Create `modules/<page-name>/views/page.html`:
+**2.** Create `modules/<page-name>/views/page.jsx`. Instead of `{% block %}`, pass the
+content to the layout as a prop:
 
-```html
-{% extends "layout.html" %}
-{% block main %}
-  <h1>{{ data.page.title }}</h1>
-  {% area data.page, 'main' %}
-{% endblock %}
+```jsx
+export default function ({ page }, { Extend, Area }) {
+  return (
+    <Extend
+      templateName="layout.jsx"
+      main={
+        <>
+          <h1>{page.title}</h1>
+          <Area doc={page} name="main" />
+        </>
+      }
+    />
+  );
+}
 ```
 
 **3.** Register in `app.js` under `modules`: `'<page-name>': {}`
@@ -150,11 +172,11 @@ export default {
 
 ## Environment Variables
 
-Copy `.env.example` to `.env`. Never commit `.env`.
+All variables are optional. To set any, copy `.env.example` to `.env`. Never commit `.env`.
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `APOS_DB_URI` | **Yes** | Database connection string (see formats below) |
+| `APOS_DB_URI` | No | Database connection string (see formats below). Defaults to `mongodb://localhost:27017/<shortName>` |
 | `APOS_DEV` | No | Set to `1` to force admin UI rebuild on every restart |
 
 **`APOS_DB_URI` formats:**
