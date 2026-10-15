@@ -12,7 +12,8 @@ export default {
             '@apostrophecms/layout': {},
             '@apostrophecms/rich-text': {},
             '@apostrophecms/image': {},
-            '@apostrophecms/video': {}
+            '@apostrophecms/video': {},
+            icon: {}
           }
         }
       }
