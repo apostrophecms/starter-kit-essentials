@@ -1,0 +1,21 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+.icon--circle,
+.icon--rounded {
+  padding: 0.5em;
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.icon--circle {
+  border-radius: 50%;
+}
+
+.icon--rounded {
+  border-radius: 0.375em;
+}

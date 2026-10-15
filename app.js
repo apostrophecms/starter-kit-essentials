@@ -39,6 +39,10 @@ apostrophe({
     // The project's first custom page type.
     'default-page': {},
     'nested-layout-widget': {},
-    'nested-column-widget': {}
+    'nested-column-widget': {},
+    // Icon picker field type and a widget that uses it.
+    // See modules/icon-picker/README.md
+    'icon-picker': {},
+    'icon-widget': {}
   }
 });
