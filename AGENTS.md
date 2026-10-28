@@ -192,3 +192,7 @@ All project translation strings use the `project:` namespace.
 - Key format: `'project:camelCaseKey'` (e.g., `'project:linkText'`)
 - Translation files: `modules/@apostrophecms/i18n/i18n/project/<locale>.json`
 - Register namespace: `modules/@apostrophecms/i18n/index.js` → `i18n: { project: { browser: true } }`
+
+## Team Conventions
+
+<!-- Add your team's own conventions below. Keep entries as facts, file paths and rules. -->
