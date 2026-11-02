@@ -377,5 +377,29 @@ export default {
         }
       }
     }
+  },
+  extendMethods(self) {
+    return {
+      registerPresets(_super) {
+        _super();
+        const bg = self.getPreset('background');
+        bg.fields.add.blur = {
+          label: 'Blur',
+          type: 'range',
+          min: 0,
+          max: 20,
+          def: 0,
+          unit: 'px',
+          property: '--preset-bg-blur',
+          class: 'has-bg-blur',
+          if: {
+            enabled: true,
+            backgroundType: 'image'
+          },
+          skipFalsyValues: true
+        };
+        self.setPreset('background', bg);
+      }
+    };
   }
 };
