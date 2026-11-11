@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **Example branch. Do not merge.** This branch adds a checkbox form field with a rich text label, for headless projects. See [FORM-FIELD-EXAMPLE.md](FORM-FIELD-EXAMPLE.md).
+
 # ApostropheCMS Essentials Starter Kit
 
 The official minimal starting point for ApostropheCMS 4 projects. Ships with a home page,
