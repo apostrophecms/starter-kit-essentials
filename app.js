@@ -39,6 +39,22 @@ apostrophe({
     // The project's first custom page type.
     'default-page': {},
     'nested-layout-widget': {},
-    'nested-column-widget': {}
+    'nested-column-widget': {},
+
+    // Forms. The form piece type, the widget that places a form on a page,
+    // and the built-in field types.
+    '@apostrophecms/form': {},
+    '@apostrophecms/form-widget': {},
+    '@apostrophecms/form-text-field-widget': {},
+    '@apostrophecms/form-textarea-field-widget': {},
+    '@apostrophecms/form-select-field-widget': {},
+    '@apostrophecms/form-radio-field-widget': {},
+    '@apostrophecms/form-checkboxes-field-widget': {},
+    '@apostrophecms/form-boolean-field-widget': {},
+    '@apostrophecms/form-conditional-widget': {},
+    '@apostrophecms/form-divider-widget': {},
+    // Example: checkbox fields with rich text labels (see FORM-FIELD-EXAMPLE.md)
+    'rich-text-boolean-field-widget': {},
+    'rich-text-checkboxes-field-widget': {}
   }
 });

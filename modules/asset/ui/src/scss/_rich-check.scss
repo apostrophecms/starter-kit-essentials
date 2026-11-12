@@ -1,0 +1,94 @@
+// Checkbox form fields with rich text labels: `rich-text-boolean-field` (a
+// single checkbox) and `rich-text-checkboxes-field` (a list of choices).
+//
+// These styles apply to server-rendered forms and to the form editor's
+// preview. A headless front end styles its own markup.
+//
+// The templates deliberately skip the form module's `apos-form-label` and
+// `apos-form-input` classes: those make labels block-level (pushing them
+// under the checkbox) and add a bottom margin to every checkbox.
+
+.rich-check {
+  --rich-check-accent: #{$color-purple};
+  --rich-check-error: #ea433a;
+  --rich-check-size: 18px;
+
+  margin: 0 0 24px;
+}
+
+// Reset the browser's default fieldset box
+fieldset.rich-check {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.rich-check__legend {
+  margin-bottom: 10px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.rich-check__optional,
+.rich-check__required {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.rich-check__options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rich-check__option {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.rich-check__input {
+  flex: none;
+  width: var(--rich-check-size);
+  height: var(--rich-check-size);
+  margin: 0.2em 0 0;
+  // Center the box on the first line of the label, in browsers that
+  // support the `lh` unit
+  margin-top: calc((1lh - var(--rich-check-size)) / 2);
+  accent-color: var(--rich-check-accent);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--rich-check-accent);
+    outline-offset: 2px;
+  }
+
+  // Added by the form module's browser code when a submission is rejected
+  &.apos-form-input-error {
+    outline: 2px solid var(--rich-check-error);
+    outline-offset: 2px;
+  }
+}
+
+.rich-check__label {
+  cursor: pointer;
+
+  // Links in consent text should look like links, even where the site
+  // hides underlines elsewhere
+  a {
+    color: var(--rich-check-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration-thickness: 2px;
+    }
+  }
+}
+
+.rich-check__message {
+  margin: 6px 0 0;
+  color: var(--rich-check-error);
+  font-size: 0.875em;
+}

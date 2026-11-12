@@ -40,8 +40,9 @@
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
+    "@apostrophecms/form": "^1.5.6",
     "@apostrophecms/vite": "^1.1.2",
-    "apostrophe": "^4.32.1",
+    "apostrophe": "^4.34.0",
     "cross-env": "^10.1.0",
     "dotenv": "^17.4.2",
     "normalize.css": "^8.0.1"

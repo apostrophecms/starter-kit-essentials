@@ -1,0 +1,14 @@
+{
+  "basics": "Basics",
+  "required": "(Required)",
+  "richTextCheckbox": "Checkbox with rich text label",
+  "richTextCheckboxFieldLabel": "Field label (plain text)",
+  "richTextCheckboxFieldLabelHelp": "Used to build the field name and to identify this field in submissions. Visitors see the rich text label above.",
+  "richTextCheckboxRichLabel": "Label shown to visitors",
+  "richTextCheckboxRichLabelHelp": "Use the link button to link to a page, such as your privacy policy. If empty, the plain-text label below is shown.",
+  "richTextCheckboxes": "Checkboxes with rich text labels",
+  "richTextChoiceLabel": "Choice label (plain text)",
+  "richTextChoiceLabelHelp": "Names this choice in the editor. If no value is set, it is also the value stored in submissions.",
+  "richTextChoiceRichLabel": "Label shown to visitors",
+  "richTextChoiceRichLabelHelp": "Use the link button to link to a page, such as your privacy policy. If empty, the plain-text label below is shown."
+}
