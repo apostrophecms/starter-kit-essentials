@@ -53,7 +53,8 @@ apostrophe({
     '@apostrophecms/form-boolean-field-widget': {},
     '@apostrophecms/form-conditional-widget': {},
     '@apostrophecms/form-divider-widget': {},
-    // Example: a checkbox field with a rich text label (see FORM-FIELD-EXAMPLE.md)
-    'rich-text-boolean-field-widget': {}
+    // Example: checkbox fields with rich text labels (see FORM-FIELD-EXAMPLE.md)
+    'rich-text-boolean-field-widget': {},
+    'rich-text-checkboxes-field-widget': {}
   }
 });

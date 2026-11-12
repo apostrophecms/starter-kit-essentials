@@ -1,18 +1,19 @@
 // Project-level configuration of the form module.
 //
 // `formWidgets` replaces the default list of field types, so it repeats the
-// defaults and adds the new rich text checkbox field. If your project already
-// sets `formWidgets`, add only the `rich-text-boolean-field` line to it.
+// defaults and adds the two new rich text checkbox field types. If your
+// project already sets `formWidgets`, add only the two `rich-text-...` lines.
 //
-// Conditional groups reuse this list, so the new field also works inside them.
+// Conditional groups reuse this list, so the new fields also work inside them.
 export default {
   options: {
     formWidgets: {
       '@apostrophecms/form-text-field': {},
       '@apostrophecms/form-textarea-field': {},
       '@apostrophecms/form-boolean-field': {},
-      // The new field type. The name is the module name without "-widget".
+      // The new field types. The name is the module name without "-widget".
       'rich-text-boolean-field': {},
+      'rich-text-checkboxes-field': {},
       '@apostrophecms/form-select-field': {},
       '@apostrophecms/form-radio-field': {},
       '@apostrophecms/form-checkboxes-field': {},

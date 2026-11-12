@@ -1,5 +1,7 @@
-// A checkbox form field whose visible label is rich text, so editors can
-// include links (for example, "I accept the privacy policy").
+import { renderRichLabel } from '../../lib/rich-label.js';
+
+// A single checkbox form field whose visible label is rich text, so editors
+// can include links (for example, "I accept the privacy policy").
 //
 // It extends the built-in checkbox field, so it inherits:
 // - the `fieldLabel`, `fieldName`, `required` and `checked` fields
@@ -10,6 +12,8 @@
 //
 // Existing checkbox fields are not changed. Editors add this field type
 // where they need a link in the label.
+//
+// Requires Apostrophe 4.34.0 or newer, for the `richText` field type.
 export default {
   extend: '@apostrophecms/form-boolean-field-widget',
   options: {
@@ -18,6 +22,14 @@ export default {
   },
   fields: {
     add: {
+      richLabel: {
+        label: 'project:richTextCheckboxRichLabel',
+        help: 'project:richTextCheckboxRichLabelHelp',
+        type: 'richText',
+        options: {
+          toolbar: [ 'bold', 'italic', 'link' ]
+        }
+      },
       // Keep the plain-text label. It builds the field name and identifies
       // the field in submissions, so it stays required. Only its label and
       // help text change, to explain its role.
@@ -26,20 +38,6 @@ export default {
         help: 'project:richTextCheckboxFieldLabelHelp',
         type: 'string',
         required: true
-      },
-      richLabel: {
-        label: 'project:richTextCheckboxRichLabel',
-        help: 'project:richTextCheckboxRichLabelHelp',
-        type: 'area',
-        options: {
-          max: 1,
-          widgets: {
-            '@apostrophecms/rich-text': {
-              toolbar: [ 'bold', 'italic', 'link' ],
-              insert: []
-            }
-          }
-        }
       }
     },
     group: {
@@ -51,21 +49,13 @@ export default {
   },
   extendMethods(self) {
     return {
-      // For headless front ends. Rich text links to pages on this site are
-      // stored as placeholders (`#apostrophe-permalink-...`) and only become
-      // real URLs when Apostrophe renders the widget. The REST API returns
-      // the stored placeholders, so resolve them here and expose the result
-      // as `_richLabelHtml`. Properties starting with `_` are never saved.
+      // Adds `_richLabelHtml`: the label as inline HTML with page links
+      // resolved, for templates and for headless front ends. Properties
+      // starting with `_` are never saved.
       async load(_super, req, widgets) {
         await _super(req, widgets);
-        const richText = self.apos.modules['@apostrophecms/rich-text-widget'];
         for (const widget of widgets) {
-          const items = widget.richLabel?.items || [];
-          let html = '';
-          for (const item of items) {
-            html += await richText.renderRichText(req, item.content);
-          }
-          widget._richLabelHtml = html;
+          widget._richLabelHtml = await renderRichLabel(self.apos, req, widget.richLabel);
         }
       }
     };
