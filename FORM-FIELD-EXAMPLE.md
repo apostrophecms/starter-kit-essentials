@@ -29,7 +29,7 @@ It is a **project-level** customization. You do not change or fork `@apostrophec
 | `lib/rich-label.js` | Shared helper that prepares the label HTML. Both field types import it. |
 | `modules/asset/ui/src/scss/_rich-check.scss` | Styles for both field types. Import it from your site stylesheet. |
 | `modules/@apostrophecms/form/index.js` | Adds the new field types to the list editors can choose from. |
-| `modules/@apostrophecms/i18n/i18n/project/en.json` | Admin UI labels. Add a `he.json` next to it for Hebrew. |
+| `modules/@apostrophecms/i18n/i18n/project/en.json` | Admin UI labels. |
 
 The `widget.jsx` templates are not what visitors see on your React site, but the form editor uses them to preview each field. Keep them.
 
@@ -136,6 +136,8 @@ Send the values in the same request your app already makes to `/api/v1/@apostrop
 3. Fill in **Field label (plain text)**. This builds the field name and identifies the field in submissions and emails. Visitors do not see it.
 
 In both, if **Label shown to visitors** is empty, the plain-text label is shown instead.
+
+**Multilingual sites:** forms are localized, so editors enter the labels separately in each locale. In a right-to-left locale such as Hebrew, the text fields and the rich text editor are right-to-left. The rest of the admin UI stays left-to-right.
 
 **Replacing an existing field:** give the new field the same field label as the old one, and the same choice values for checkboxes. New submissions then use the same keys and values as old ones, so exports and emails stay consistent.
 
